@@ -33,7 +33,7 @@ function App() {
           initialWidth={sidebarWidth}
           minWidth={200}
           maxWidth={500}
-          className="bg-background-secondary border-r border-border-primary flex-shrink-0 shadow-cursor-sm"
+          className="bg-background-secondary border-r border-border-secondary flex-shrink-0 shadow-cursor-sm"
         >
           <Sidebar />
         </ResizablePanel>
@@ -42,7 +42,7 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="h-10 bg-background-secondary border-b border-border-primary flex items-center px-4 shadow-cursor-sm">
+        <div className="h-10 bg-background-secondary border-b border-border-secondary flex items-center px-4 shadow-cursor-sm">
           <h1 className="text-sm font-medium text-text-primary">
             {currentProject ? currentProject.name : 'Translation App'}
           </h1>
@@ -76,7 +76,7 @@ function App() {
               initialWidth={chatPanelWidth}
               minWidth={250}
               maxWidth={600}
-              className="bg-background-secondary border-l border-border-primary flex-shrink-0 shadow-cursor-sm"
+              className="bg-background-secondary border-l border-border-secondary flex-shrink-0 shadow-cursor-sm"
             >
               <ChatPanel />
             </ResizablePanel>

@@ -20,7 +20,7 @@ export default function Sidebar() {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="p-3 border-b border-border-primary">
+      <div className="p-3 border-b border-border-secondary">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-medium text-text-primary">Projects</h2>
           <button
@@ -77,7 +77,7 @@ export default function Sidebar() {
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-border-primary space-y-1">
+      <div className="p-3 border-t border-border-secondary space-y-1">
         <button
           onClick={() => setChatPanelOpen(!chatPanelOpen)}
           className={`w-full flex items-center space-x-2 p-1.5 rounded-lg transition-all duration-200 ${
@@ -99,7 +99,7 @@ export default function Sidebar() {
       {/* New Project Modal Trigger */}
       {showNewProject && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
-          <div className="bg-background-secondary border border-border-primary rounded-lg p-4 w-80 max-w-md mx-4 shadow-cursor animate-slide-in">
+          <div className="bg-background-secondary border border-border-secondary rounded-lg p-4 w-80 max-w-md mx-4 shadow-cursor animate-slide-in">
             <h3 className="text-sm font-medium text-text-primary mb-3">Create New Project</h3>
             <form onSubmit={(e) => {
               e.preventDefault();

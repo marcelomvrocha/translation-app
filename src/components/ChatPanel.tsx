@@ -40,7 +40,7 @@ export default function ChatPanel() {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="p-3 border-b border-border-primary bg-background-secondary">
+      <div className="p-3 border-b border-border-secondary bg-background-secondary">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Bot className="w-4 h-4 text-accent-blue" />
@@ -155,7 +155,7 @@ export default function ChatPanel() {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-t border-border-primary bg-background-secondary">
+      <div className="p-3 border-t border-border-secondary bg-background-secondary">
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <input
             type="text"

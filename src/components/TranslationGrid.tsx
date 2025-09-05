@@ -68,7 +68,7 @@ export default function TranslationGrid() {
   return (
     <div className="h-full flex flex-col">
       {/* Toolbar */}
-      <div className="p-3 border-b border-border-primary bg-background-secondary">
+      <div className="p-3 border-b border-border-secondary bg-background-secondary">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-sm font-medium text-text-primary">Translations</h2>
           <div className="flex items-center space-x-1.5">
@@ -117,7 +117,7 @@ export default function TranslationGrid() {
       <div className="flex-1 overflow-auto">
         <div className="min-w-full">
           {/* Header */}
-          <div className="sticky top-0 bg-background-secondary border-b border-border-primary shadow-cursor-sm">
+          <div className="sticky top-0 bg-background-secondary border-b border-border-secondary shadow-cursor-sm">
             <div className="grid grid-cols-12 gap-3 p-3 text-xs font-medium text-text-primary">
               <div className="col-span-3">Source Text</div>
               <div className="col-span-3">Target Translation</div>

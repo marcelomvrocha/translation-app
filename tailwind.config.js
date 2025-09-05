@@ -17,7 +17,7 @@ export default {
         },
         border: {
           primary: '#30363d',    // Primary borders
-          secondary: '#21262d',  // Secondary borders
+          secondary: '#161b22',  // Secondary borders (darker)
           accent: '#f0f6fc',     // Accent borders
         },
         text: {
