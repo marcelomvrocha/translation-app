@@ -20,6 +20,7 @@ target/
 *.db
 *.sqlite
 *.sqlite3
+data/
 
 # IDE
 .vscode/
