@@ -19,10 +19,10 @@ function App() {
   }, [loadProjects]);
 
   return (
-    <div className="h-screen flex bg-gray-50">
+    <div className="h-screen flex bg-background-primary dark">
       {/* Sidebar */}
       {sidebarOpen && (
-        <div className="w-64 bg-white border-r border-gray-200 flex-shrink-0">
+        <div className="w-64 bg-background-secondary border-r border-border-primary flex-shrink-0 shadow-cursor-sm">
           <Sidebar />
         </div>
       )}
@@ -30,8 +30,8 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="h-12 bg-white border-b border-gray-200 flex items-center px-4">
-          <h1 className="text-lg font-semibold text-gray-900">
+        <div className="h-12 bg-background-secondary border-b border-border-primary flex items-center px-4 shadow-cursor-sm">
+          <h1 className="text-lg font-semibold text-text-primary">
             {currentProject ? currentProject.name : 'Translation App'}
           </h1>
         </div>
@@ -44,11 +44,11 @@ function App() {
               <TranslationGrid />
             ) : (
               <div className="flex items-center justify-center h-full">
-                <div className="text-center">
-                  <h2 className="text-xl font-medium text-gray-900 mb-2">
+                <div className="text-center animate-fade-in">
+                  <h2 className="text-xl font-medium text-text-primary mb-2">
                     No Project Selected
                   </h2>
-                  <p className="text-gray-500 mb-4">
+                  <p className="text-text-secondary mb-4">
                     Create a new project or select an existing one to get started.
                   </p>
                 </div>
@@ -58,7 +58,7 @@ function App() {
 
           {/* Chat Panel */}
           {chatPanelOpen && currentProject && (
-            <div className="w-80 bg-white border-l border-gray-200 flex-shrink-0">
+            <div className="w-80 bg-background-secondary border-l border-border-primary flex-shrink-0 shadow-cursor-sm">
               <ChatPanel />
             </div>
           )}

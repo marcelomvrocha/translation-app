@@ -20,12 +20,12 @@ export default function Sidebar() {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200">
+      <div className="p-4 border-b border-border-primary">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Projects</h2>
+          <h2 className="text-lg font-semibold text-text-primary">Projects</h2>
           <button
             onClick={() => setShowNewProject(true)}
-            className="p-1 text-gray-400 hover:text-gray-600 rounded"
+            className="p-2 text-text-tertiary hover:text-text-primary hover:bg-interactive-hover rounded-lg transition-all duration-200"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -36,12 +36,12 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto">
         <div className="p-2">
           {projects.length === 0 ? (
-            <div className="text-center py-8">
-              <Folder className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-500">No projects yet</p>
+            <div className="text-center py-8 animate-fade-in">
+              <Folder className="w-8 h-8 text-text-tertiary mx-auto mb-2" />
+              <p className="text-sm text-text-secondary">No projects yet</p>
               <button
                 onClick={() => setShowNewProject(true)}
-                className="mt-2 text-sm text-primary-600 hover:text-primary-700"
+                className="mt-2 text-sm text-accent-blue hover:text-accent-blue/80 transition-colors duration-200"
               >
                 Create your first project
               </button>
@@ -52,18 +52,20 @@ export default function Sidebar() {
                 <button
                   key={project.id}
                   onClick={() => handleProjectSelect(project.id)}
-                  className={`w-full text-left p-3 rounded-lg transition-colors ${
+                  className={`w-full text-left p-3 rounded-lg transition-all duration-200 group ${
                     currentProject?.id === project.id
-                      ? 'bg-primary-50 text-primary-700 border border-primary-200'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20 shadow-cursor-sm'
+                      : 'text-text-primary hover:bg-interactive-hover border border-transparent hover:border-border-primary'
                   }`}
                 >
                   <div className="flex items-center space-x-2">
-                    <Folder className="w-4 h-4" />
+                    <Folder className={`w-4 h-4 ${
+                      currentProject?.id === project.id ? 'text-accent-blue' : 'text-text-tertiary group-hover:text-text-primary'
+                    } transition-colors duration-200`} />
                     <span className="font-medium truncate">{project.name}</span>
                   </div>
                   {project.description && (
-                    <p className="text-xs text-gray-500 mt-1 truncate">
+                    <p className="text-xs text-text-tertiary mt-1 truncate">
                       {project.description}
                     </p>
                   )}
@@ -75,20 +77,20 @@ export default function Sidebar() {
       </div>
 
       {/* Footer */}
-      <div className="p-4 border-t border-gray-200 space-y-2">
+      <div className="p-4 border-t border-border-primary space-y-2">
         <button
           onClick={() => setChatPanelOpen(!chatPanelOpen)}
-          className={`w-full flex items-center space-x-2 p-2 rounded-lg transition-colors ${
+          className={`w-full flex items-center space-x-2 p-2 rounded-lg transition-all duration-200 ${
             chatPanelOpen
-              ? 'bg-primary-50 text-primary-700'
-              : 'text-gray-700 hover:bg-gray-50'
+              ? 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20'
+              : 'text-text-primary hover:bg-interactive-hover border border-transparent hover:border-border-primary'
           }`}
         >
           <MessageSquare className="w-4 h-4" />
           <span className="text-sm font-medium">AI Chat</span>
         </button>
         
-        <button className="w-full flex items-center space-x-2 p-2 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+        <button className="w-full flex items-center space-x-2 p-2 rounded-lg text-text-primary hover:bg-interactive-hover border border-transparent hover:border-border-primary transition-all duration-200">
           <Settings className="w-4 h-4" />
           <span className="text-sm font-medium">Settings</span>
         </button>
@@ -96,9 +98,9 @@ export default function Sidebar() {
 
       {/* New Project Modal Trigger */}
       {showNewProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96 max-w-md mx-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Create New Project</h3>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
+          <div className="bg-background-secondary border border-border-primary rounded-lg p-6 w-96 max-w-md mx-4 shadow-cursor animate-slide-in">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">Create New Project</h3>
             <form onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
@@ -112,25 +114,25 @@ export default function Sidebar() {
             }}>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-text-primary mb-1">
                     Project Name
                   </label>
                   <input
                     name="name"
                     type="text"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-3 py-2 bg-background-primary border border-border-primary rounded-lg text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-accent-blue focus:border-accent-blue transition-all duration-200"
                     placeholder="Enter project name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-text-primary mb-1">
                     Description (Optional)
                   </label>
                   <textarea
                     name="description"
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-3 py-2 bg-background-primary border border-border-primary rounded-lg text-text-primary placeholder-text-tertiary focus:ring-2 focus:ring-accent-blue focus:border-accent-blue transition-all duration-200 resize-none"
                     placeholder="Enter project description"
                   />
                 </div>
@@ -139,13 +141,13 @@ export default function Sidebar() {
                 <button
                   type="button"
                   onClick={() => setShowNewProject(false)}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+                  className="px-4 py-2 text-sm font-medium text-text-primary bg-interactive-hover rounded-lg hover:bg-interactive-active transition-all duration-200"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700"
+                  className="px-4 py-2 text-sm font-medium text-white bg-accent-blue rounded-lg hover:bg-accent-blue/90 transition-all duration-200 shadow-cursor-sm"
                 >
                   Create Project
                 </button>
