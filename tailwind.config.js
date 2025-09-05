@@ -10,8 +10,8 @@ export default {
       colors: {
         // Cursor-inspired color palette
         background: {
-          primary: '#0d1117',    // Main background
-          secondary: '#161b22',  // Secondary background
+          primary: '#1a1a1a',    // Main background
+          secondary: '#2a2a2a',  // Secondary background
           tertiary: '#21262d',   // Tertiary background
           hover: '#30363d',      // Hover states
         },
@@ -30,6 +30,7 @@ export default {
           error: '#f85149',      // Error text (red)
         },
         accent: {
+          primary: '#ff69b4',    // Pink for testing
           blue: '#58a6ff',       // Cursor blue
           purple: '#bc8cff',     // Cursor purple
           green: '#3fb950',      // Cursor green
