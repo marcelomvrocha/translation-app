@@ -44,6 +44,8 @@ interface AppState {
   // UI State
   sidebarOpen: boolean;
   chatPanelOpen: boolean;
+  sidebarWidth: number;
+  chatPanelWidth: number;
   
   // Actions
   setProjects: (projects: Project[]) => void;
@@ -55,6 +57,8 @@ interface AppState {
   setChatLoading: (loading: boolean) => void;
   setSidebarOpen: (open: boolean) => void;
   setChatPanelOpen: (open: boolean) => void;
+  setSidebarWidth: (width: number) => void;
+  setChatPanelWidth: (width: number) => void;
   
   // API Actions
   loadProjects: () => Promise<void>;
@@ -77,6 +81,8 @@ export const useStore = create<AppState>((set, get) => ({
   isChatLoading: false,
   sidebarOpen: true,
   chatPanelOpen: true,
+  sidebarWidth: 256, // 16rem (w-64)
+  chatPanelWidth: 320, // 20rem (w-80)
 
   // Basic setters
   setProjects: (projects) => set({ projects }),
@@ -90,6 +96,8 @@ export const useStore = create<AppState>((set, get) => ({
   setChatLoading: (loading) => set({ isChatLoading: loading }),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
   setChatPanelOpen: (open) => set({ chatPanelOpen: open }),
+  setSidebarWidth: (width) => set({ sidebarWidth: Math.max(200, Math.min(500, width)) }),
+  setChatPanelWidth: (width) => set({ chatPanelWidth: Math.max(250, Math.min(600, width)) }),
 
   // API Actions
   loadProjects: async () => {

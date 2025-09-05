@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import TranslationGrid from './components/TranslationGrid';
 import ChatPanel from './components/ChatPanel';
 import ProjectModal from './components/ProjectModal';
+import ResizablePanel from './components/ResizablePanel';
 import './App.css';
 
 function App() {
@@ -11,7 +12,11 @@ function App() {
     currentProject, 
     loadProjects, 
     sidebarOpen, 
-    chatPanelOpen 
+    chatPanelOpen,
+    sidebarWidth,
+    chatPanelWidth,
+    setSidebarWidth,
+    setChatPanelWidth
   } = useStore();
 
   useEffect(() => {
@@ -22,9 +27,16 @@ function App() {
     <div className="h-screen flex bg-background-primary dark">
       {/* Sidebar */}
       {sidebarOpen && (
-        <div className="w-64 bg-background-secondary border-r border-border-primary flex-shrink-0 shadow-cursor-sm">
+        <ResizablePanel
+          direction="left"
+          onResize={setSidebarWidth}
+          initialWidth={sidebarWidth}
+          minWidth={200}
+          maxWidth={500}
+          className="bg-background-secondary border-r border-border-primary flex-shrink-0 shadow-cursor-sm"
+        >
           <Sidebar />
-        </div>
+        </ResizablePanel>
       )}
 
       {/* Main Content */}
@@ -39,7 +51,7 @@ function App() {
         {/* Content Area */}
         <div className="flex-1 flex">
           {/* Translation Grid */}
-          <div className={`flex-1 ${chatPanelOpen ? 'mr-80' : ''}`}>
+          <div className="flex-1">
             {currentProject ? (
               <TranslationGrid />
             ) : (
@@ -58,9 +70,16 @@ function App() {
 
           {/* Chat Panel */}
           {chatPanelOpen && currentProject && (
-            <div className="w-80 bg-background-secondary border-l border-border-primary flex-shrink-0 shadow-cursor-sm">
+            <ResizablePanel
+              direction="right"
+              onResize={setChatPanelWidth}
+              initialWidth={chatPanelWidth}
+              minWidth={250}
+              maxWidth={600}
+              className="bg-background-secondary border-l border-border-primary flex-shrink-0 shadow-cursor-sm"
+            >
               <ChatPanel />
-            </div>
+            </ResizablePanel>
           )}
         </div>
       </div>

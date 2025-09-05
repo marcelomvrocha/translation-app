@@ -73,6 +73,7 @@ export default {
         'fade-in': 'fadeIn 0.2s ease-in-out',
         'slide-in': 'slideIn 0.3s ease-out',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'resize-glow': 'resizeGlow 0.3s ease-in-out',
       },
       keyframes: {
         fadeIn: {
@@ -82,6 +83,11 @@ export default {
         slideIn: {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        resizeGlow: {
+          '0%': { backgroundColor: 'transparent' },
+          '50%': { backgroundColor: 'rgba(88, 166, 255, 0.3)' },
+          '100%': { backgroundColor: 'transparent' },
         },
       },
     },
