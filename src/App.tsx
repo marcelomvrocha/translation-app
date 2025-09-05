@@ -30,8 +30,8 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="h-12 bg-background-secondary border-b border-border-primary flex items-center px-4 shadow-cursor-sm">
-          <h1 className="text-lg font-semibold text-text-primary">
+        <div className="h-10 bg-background-secondary border-b border-border-primary flex items-center px-4 shadow-cursor-sm">
+          <h1 className="text-sm font-medium text-text-primary">
             {currentProject ? currentProject.name : 'Translation App'}
           </h1>
         </div>
@@ -45,10 +45,10 @@ function App() {
             ) : (
               <div className="flex items-center justify-center h-full">
                 <div className="text-center animate-fade-in">
-                  <h2 className="text-xl font-medium text-text-primary mb-2">
+                  <h2 className="text-lg font-medium text-text-primary mb-2">
                     No Project Selected
                   </h2>
-                  <p className="text-text-secondary mb-4">
+                  <p className="text-sm text-text-secondary mb-4">
                     Create a new project or select an existing one to get started.
                   </p>
                 </div>
