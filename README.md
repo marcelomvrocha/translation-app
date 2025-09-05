@@ -1,6 +1,16 @@
-# Translation App
+# GAIA
 
 A cross-platform translation application built with Tauri, React, and local AI integration. Designed for translators and localizers working with sensitive or unreleased projects.
+
+**GAIA** - The intelligent translation companion that brings AI-powered assistance to your localization workflow.
+
+### 🎨 Branding
+The application features a distinctive stylized logo:
+```
+GA|
+IA|
+```
+The logo is right-aligned in the header and represents the application's focus on intelligent assistance (GAIA = Global AI Assistant).
 
 ## Features
 
@@ -45,7 +55,7 @@ A cross-platform translation application built with Tauri, React, and local AI i
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd translation-app
+   cd gaia
    ```
 
 2. **Install dependencies**
