@@ -11,12 +11,12 @@
 }
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 400;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  color: #f0f6fc;
+  background-color: #0d1117;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -66,16 +66,16 @@ h1 {
 
 input,
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
   font-weight: 500;
   font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
+  color: #f0f6fc;
+  background-color: #161b22;
   transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 button {
@@ -83,11 +83,12 @@ button {
 }
 
 button:hover {
-  border-color: #396cd8;
+  border-color: #58a6ff;
+  background-color: #30363d;
 }
 button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+  border-color: #58a6ff;
+  background-color: #21262d;
 }
 
 input,
@@ -99,22 +100,48 @@ button {
   margin-right: 5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
+/* Dark theme styles are now handled by Tailwind classes */
 
-  a:hover {
-    color: #24c8db;
-  }
+/* Ensure all borders use dark theme colors */
+* {
+  border-color: #30363d;
+}
 
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
-  }
+.dark * {
+  border-color: #30363d;
+}
+
+/* Override any white borders */
+.dark .border-white,
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: #30363d !important;
+}
+
+/* Ensure panel borders are dark */
+.dark .border,
+.dark .border-r,
+.dark .border-l,
+.dark .border-t,
+.dark .border-b {
+  border-color: #30363d !important;
+}
+
+/* Force dark borders on all elements */
+.dark * {
+  border-color: #30363d !important;
+}
+
+/* Specific overrides for common white border classes */
+.dark .border-white,
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-gray-400 {
+  border-color: #30363d !important;
+}
+
+/* Ensure the root element has dark borders */
+.dark {
+  border-color: #30363d !important;
 }

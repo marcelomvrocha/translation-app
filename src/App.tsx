@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useStore } from './store/useStore';
-import Sidebar from './components/Sidebar';
-import TranslationGrid from './components/TranslationGrid';
-import ChatPanel from './components/ChatPanel';
-import ProjectModal from './components/ProjectModal';
-import ResizablePanel from './components/ResizablePanel';
+import Sidebar from './components/Sidebar.tsx';
+import TranslationGrid from './components/TranslationGrid.tsx';
+import ChatPanel from './components/ChatPanel.tsx';
+import ProjectModal from './components/ProjectModal.tsx';
+import ResizablePanel from './components/ResizablePanel.tsx';
 import './App.css';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           initialWidth={sidebarWidth}
           minWidth={200}
           maxWidth={500}
-          className="bg-background-secondary border-r border-border-secondary flex-shrink-0 shadow-cursor-sm"
+          className="bg-background-secondary border-r border-border-primary flex-shrink-0 shadow-cursor-sm"
         >
           <Sidebar />
         </ResizablePanel>
@@ -42,9 +42,14 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="h-10 bg-background-secondary border-b border-border-secondary flex items-center px-4 shadow-cursor-sm">
+        <div className="h-10 bg-background-secondary border-b border-border-primary flex items-center justify-end px-4 shadow-cursor-sm">
           <h1 className="text-sm font-medium text-text-primary">
-            {currentProject ? currentProject.name : 'Translation App'}
+            {currentProject ? currentProject.name : (
+              <span className="text-right">
+                <span className="block leading-none">GA|</span>
+                <span className="block leading-none">IA|</span>
+              </span>
+            )}
           </h1>
         </div>
 
@@ -76,7 +81,7 @@ function App() {
               initialWidth={chatPanelWidth}
               minWidth={250}
               maxWidth={600}
-              className="bg-background-secondary border-l border-border-secondary flex-shrink-0 shadow-cursor-sm"
+              className="bg-background-secondary border-l border-border-primary flex-shrink-0 shadow-cursor-sm"
             >
               <ChatPanel />
             </ResizablePanel>
