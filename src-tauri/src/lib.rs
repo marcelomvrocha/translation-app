@@ -158,8 +158,9 @@ pub fn run() {
         .setup(|app| {
             let app_handle = app.handle().clone();
             tauri::async_runtime::spawn(async move {
-                // Initialize database
-                let database_url = "sqlite:./data/translation_app.db";
+                // Initialize database with a simple path
+                let database_url = "sqlite::memory:"; // Use in-memory database for testing
+                
                 let db = Database::new(database_url).await.expect("Failed to initialize database");
                 let db_state: DbState = Arc::new(Mutex::new(db));
                 
