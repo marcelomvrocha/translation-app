@@ -38,10 +38,10 @@ The current implementation uses generic icons that don't match macOS traffic lig
 Replace generic Lucide icons with proper macOS traffic light symbols using Unicode characters or SVG.
 
 ### **Phase 2: Styling Refinement (1 hour)**
-Adjust styling to match native macOS traffic light appearance, including proper sizing, positioning, and visual effects.
+Adjust styling to match native macOS traffic light appearance, including proper sizing, positioning, visual effects, and **traffic light colors**.
 
 ### **Phase 3: Testing and Validation (30 minutes)**
-Test across different macOS versions and ensure proper rendering and functionality.
+Test across different macOS versions and ensure proper rendering, functionality, and **traffic light color accuracy**.
 
 ---
 
@@ -129,7 +129,32 @@ const MaximizeIcon = () => (
 }
 ```
 
-#### **Step 2.2: Button Sizing Adjustments**
+#### **Step 2.2: Traffic Light Colors (CRITICAL)**
+```css
+/* macOS Traffic Light Colors - MUST match native appearance */
+.closeButton {
+  background-color: #ff5f57; /* Red - Close */
+}
+.closeButton:hover {
+  background-color: #ff3b30; /* Darker red on hover */
+}
+
+.minimizeButton {
+  background-color: #ffbd2e; /* Yellow - Minimize */
+}
+.minimizeButton:hover {
+  background-color: #ff9500; /* Darker yellow on hover */
+}
+
+.maximizeButton {
+  background-color: #28ca42; /* Green - Maximize */
+}
+.maximizeButton:hover {
+  background-color: #30d158; /* Darker green on hover */
+}
+```
+
+#### **Step 2.3: Button Sizing Adjustments**
 ```css
 .windowButton {
   width: 12px;
@@ -157,7 +182,7 @@ const MaximizeIcon = () => (
 }
 ```
 
-#### **Step 2.3: Visual Effects Enhancement**
+#### **Step 2.4: Visual Effects Enhancement**
 ```css
 /* Hover effects that match macOS behavior */
 .windowButton:hover .trafficLightSymbol {
@@ -179,20 +204,41 @@ const MaximizeIcon = () => (
 
 ### **Phase 3: Testing and Validation**
 
-#### **Step 3.1: Cross-Platform Testing**
+#### **Step 3.1: Functionality Testing (CRITICAL)**
+- **Close Button Functionality**:
+  - Verify `handleClose()` function calls `closeWindow()` from `useWindowControls`
+  - Test that window closes properly without errors
+  - Ensure proper cleanup and no memory leaks
+- **Minimize Button Functionality**:
+  - Verify `handleMinimize()` function calls `minimizeWindow()` from `useWindowControls`
+  - Test that window minimizes to dock/taskbar correctly
+  - Ensure window can be restored from dock
+- **Maximize Button Functionality**:
+  - Verify `handleMaximize()` function calls `toggleMaximize()` from `useWindowControls`
+  - Test window toggles between maximized and normal states
+  - Ensure proper window state management
+
+#### **Step 3.2: Traffic Light Color Testing**
+- **Red Button (Close)**: Verify `#ff5f57` background color matches native macOS
+- **Yellow Button (Minimize)**: Verify `#ffbd2e` background color matches native macOS
+- **Green Button (Maximize)**: Verify `#28ca42` background color matches native macOS
+- **Hover States**: Test darker color variants on hover
+- **Color Consistency**: Ensure colors match across different macOS versions
+
+#### **Step 3.3: Cross-Platform Testing**
 - **macOS**: Test on different macOS versions (Monterey, Ventura, Sonoma)
 - **Font Rendering**: Ensure symbols render correctly with system fonts
 - **Accessibility**: Test with screen readers and keyboard navigation
 
-#### **Step 3.2: Visual Comparison**
+#### **Step 3.4: Visual Comparison**
 - **Screenshot Comparison**: Compare with native macOS traffic lights
 - **Pixel-Perfect Alignment**: Ensure symbols are properly centered
 - **Color Accuracy**: Match native traffic light colors exactly
 
-#### **Step 3.3: Functionality Testing**
-- **Button Actions**: Verify close, minimize, maximize functionality
+#### **Step 3.5: Interactive Testing**
 - **Hover Effects**: Test all interactive states
 - **Responsive Design**: Ensure proper scaling on different screen sizes
+- **Keyboard Navigation**: Test tab navigation and focus states
 
 ---
 
@@ -203,9 +249,15 @@ const MaximizeIcon = () => (
 - ✅ **Typography**: Use system fonts for authentic macOS appearance
 - ✅ **Sizing**: Perfect alignment and centering within buttons
 - ✅ **Colors**: Match native traffic light colors precisely
+  - **Red Button**: `#ff5f57` (Close) with `#ff3b30` hover
+  - **Yellow Button**: `#ffbd2e` (Minimize) with `#ff9500` hover
+  - **Green Button**: `#28ca42` (Maximize) with `#30d158` hover
 
 ### **Functional Requirements**
 - ✅ **Button Actions**: All window controls work correctly
+  - **Close Button**: Calls `closeWindow()` from `useWindowControls` hook
+  - **Minimize Button**: Calls `minimizeWindow()` from `useWindowControls` hook
+  - **Maximize Button**: Calls `toggleMaximize()` from `useWindowControls` hook
 - ✅ **Hover Effects**: Smooth, native-like interactions
 - ✅ **Accessibility**: Proper focus states and keyboard navigation
 - ✅ **Responsive**: Works on all screen sizes

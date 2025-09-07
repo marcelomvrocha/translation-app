@@ -167,6 +167,7 @@ import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
 **Current State:**
 - Basic hover/active states implemented
 - Simple scaling effects
+- Traffic light colors already implemented (red, yellow, green)
 
 **Enhancement Tasks:**
 1. **Advanced Hover Effects**
@@ -190,6 +191,31 @@ import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
      outline: 2px solid rgba(0, 122, 255, 0.6);
      outline-offset: 2px;
      box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+   }
+   ```
+
+4. **Traffic Light Color Optimization**
+   ```css
+   /* Ensure proper macOS traffic light colors */
+   .closeButton {
+     background-color: #ff5f57; /* Red - Close */
+   }
+   .closeButton:hover {
+     background-color: #ff3b30; /* Darker red on hover */
+   }
+   
+   .minimizeButton {
+     background-color: #ffbd2e; /* Yellow - Minimize */
+   }
+   .minimizeButton:hover {
+     background-color: #ff9500; /* Darker yellow on hover */
+   }
+   
+   .maximizeButton {
+     background-color: #28ca42; /* Green - Maximize */
+   }
+   .maximizeButton:hover {
+     background-color: #30d158; /* Darker green on hover */
    }
    ```
 
@@ -248,17 +274,29 @@ import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
 #### **Step 3.2: Functionality Testing (10 minutes)**
 
 **Testing Tasks:**
-1. **Button Actions**
-   - Test close button functionality
-   - Test minimize button functionality
-   - Test maximize button functionality
+1. **Button Actions - Core Functionality**
+   - **Close Button**: Test window closing functionality
+     - Verify `handleClose()` calls `closeWindow()` from `useWindowControls`
+     - Ensure window closes properly without errors
+   - **Minimize Button**: Test window minimizing functionality
+     - Verify `handleMinimize()` calls `minimizeWindow()` from `useWindowControls`
+     - Ensure window minimizes to dock/taskbar
+   - **Maximize Button**: Test window maximizing functionality
+     - Verify `handleMaximize()` calls `toggleMaximize()` from `useWindowControls`
+     - Ensure window toggles between maximized and normal states
 
-2. **Hover Effects**
+2. **Traffic Light Color Verification**
+   - **Red Button (Close)**: Verify `#ff5f57` background color
+   - **Yellow Button (Minimize)**: Verify `#ffbd2e` background color
+   - **Green Button (Maximize)**: Verify `#28ca42` background color
+   - **Hover States**: Test darker color variants on hover
+
+3. **Hover Effects**
    - Verify hover states work correctly
    - Test active states
    - Check focus states
 
-3. **Responsive Behavior**
+4. **Responsive Behavior**
    - Test on different screen sizes
    - Verify scaling behavior
    - Check mobile responsiveness
