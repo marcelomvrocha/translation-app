@@ -5,6 +5,9 @@
 /* Import design system variables */
 @import './styles/variables.css';
 
+/* Import utility classes */
+@import './styles/utilities.css';
+
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
 }
