@@ -1,4 +1,4 @@
-import { PanelLeft, PanelBottom, MessageSquare, Settings, X, Minus, Square } from 'lucide-react';
+import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useWindowControls } from '../hooks/useWindowControls';
 import styles from './TopBar.module.css';
@@ -38,21 +38,21 @@ export default function TopBar({ projectName = "Untitled Project", projectDescri
             onClick={handleClose}
             title="Close"
           >
-            <X className={styles.windowIcon} />
+            <span className={styles.trafficLightSymbol}>×</span>
           </button>
           <button 
             className={`${styles.windowButton} ${styles.minimizeButton}`}
             onClick={handleMinimize}
             title="Minimize"
           >
-            <Minus className={styles.windowIcon} />
+            <span className={styles.trafficLightSymbol}>−</span>
           </button>
           <button 
             className={`${styles.windowButton} ${styles.maximizeButton}`}
             onClick={handleMaximize}
             title="Maximize"
           >
-            <Square className={styles.windowIcon} />
+            <span className={styles.trafficLightSymbol}>+</span>
           </button>
         </div>
       </div>

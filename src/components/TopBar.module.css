@@ -92,15 +92,39 @@
   transform: scale(1.1);
 }
 
+.windowButton:hover .trafficLightSymbol {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .windowButton:active {
   transform: scale(0.95);
   opacity: 0.6;
 }
 
-.windowIcon {
-  width: 6px;
-  height: 6px;
+.windowButton:active .trafficLightSymbol {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+.windowButton:focus {
+  outline: 2px solid rgba(0, 122, 255, 0.5);
+  outline-offset: 1px;
+}
+
+.trafficLightSymbol {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
   color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 
