@@ -13,6 +13,7 @@ This directory contains comprehensive documentation for the TopBar redesign proj
 ### **📋 Project Documentation**
 - **[TOPBAR_REDESIGN.md](./TOPBAR_REDESIGN.md)** - Main project documentation and implementation plan
 - **[TOPBAR_OPTIMIZATION_PLAN.md](./TOPBAR_OPTIMIZATION_PLAN.md)** - TopBar optimization: duplicate traffic lights fix and search removal
+- **[CUSTOM_TITLE_BAR_PLAN.md](./CUSTOM_TITLE_BAR_PLAN.md)** - Custom title bar implementation: hide native title bar and create custom window controls
 
 ### **🔍 Phase Documentation** (`phases/`)
 - **[PHASE_1_ANALYSIS.md](./phases/PHASE_1_ANALYSIS.md)** - Phase 1: Layout Structure Analysis
@@ -67,6 +68,7 @@ This directory contains comprehensive documentation for the TopBar redesign proj
 - **Phase 3**: Component Restructuring and Visual Polish ✅
 - **Phase 4**: Final Testing and Documentation ✅
 - **Optimization**: TopBar Layout Optimization ✅
+- **Custom Title Bar**: Custom Title Bar Implementation ✅
 
 ### **Quality Metrics**
 - **Overall Quality Score**: A+ (Excellent)
@@ -84,6 +86,7 @@ This directory contains comprehensive documentation for the TopBar redesign proj
 - ✅ **Complete Documentation**: Comprehensive documentation suite
 - ✅ **Production Ready**: Ready for immediate deployment
 - ✅ **Optimized Layout**: Fixed duplicate traffic lights and removed unused search functionality
+- ✅ **Custom Title Bar**: Professional custom title bar with native macOS window controls
 
 ## 📝 Documentation Standards
 
