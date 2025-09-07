@@ -46,21 +46,34 @@
 .windowControls {
   display: flex;
   align-items: center;
-  gap: 6px; /* Slightly increased gap between buttons */
+  justify-content: flex-start; /* Don't stretch buttons */
+  gap: 8px; /* Perfect macOS spacing between traffic lights */
   padding: var(--spacing-sm);
+  flex-shrink: 0; /* Prevent container from shrinking */
 }
 
 .windowButton {
-  width: 13px; /* Slightly larger for better clickability */
-  height: 13px;
-  border-radius: var(--radius-full);
-  border: none;
+  width: 12px !important; /* Perfect macOS size */
+  height: 12px !important;
+  min-width: 12px !important; /* Ensure consistent width */
+  min-height: 12px !important; /* Ensure consistent height */
+  max-width: 12px !important; /* Prevent any stretching */
+  max-height: 12px !important; /* Prevent any stretching */
+  border-radius: 50% !important; /* Perfectly round */
+  border: none !important; /* No borders */
+  outline: none !important; /* No outlines */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-app-region: no-drag; /* Prevent dragging on window controls */
+  box-shadow: none !important; /* Remove shadow that might distort the shape */
+  flex-shrink: 0; /* Prevent flex shrinking */
+  flex-grow: 0; /* Prevent flex growing */
+  flex-basis: 12px; /* Fixed basis */
+  overflow: hidden; /* Prevent content from affecting shape */
+  position: relative; /* For absolute positioning of symbols */
 }
 
 .closeButton {
@@ -88,13 +101,13 @@
 }
 
 .windowButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02); /* Subtle scale like native macOS */
+  box-shadow: none; /* Keep perfectly round without shadow distortion */
 }
 
 .windowButton:hover .trafficLightSymbol {
-  opacity: 1;
-  transform: scale(1.1);
+  opacity: 1 !important; /* Show symbol on hover */
+  transform: translate(-50%, -50%) scale(1.1); /* Maintain centering and subtle scaling */
 }
 
 .windowButton:active {
@@ -114,22 +127,27 @@
 }
 
 .trafficLightSymbol {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Ubuntu', 'Cantarell', 'Liberation Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 8px; /* Adjusted for new button size */
-  font-weight: 500; /* Lighter weight for cleaner look */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 6px; /* Smaller size to not affect button shape */
+  font-weight: 300; /* Lighter weight like macOS */
   line-height: 1;
   color: #000000 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
   user-select: none;
   -webkit-user-select: none;
-  letter-spacing: -0.02em; /* Tighter spacing for crisp rendering */
+  letter-spacing: 0; /* No letter spacing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  opacity: 0; /* Hidden by default - only show on hover */
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Prevent symbol from interfering with button clicks */
 }
 
 /* Ensure traffic light symbols are always dark, overriding any inherited colors */
@@ -176,6 +194,25 @@
 /* Final nuclear option - target all text in window controls */
 .windowControls * {
   color: #000000 !important;
+}
+
+/* Ensure perfect roundness for traffic light buttons */
+.windowControls .windowButton {
+  aspect-ratio: 1 / 1 !important; /* Force perfect square aspect ratio */
+  border-radius: 50% !important; /* Force perfect circle */
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  border: none !important; /* Remove any borders */
+  outline: none !important; /* Remove any outlines */
+  box-shadow: none !important; /* Remove any shadows */
+  flex-shrink: 0 !important; /* Prevent flex shrinking */
+  flex-grow: 0 !important; /* Prevent flex growing */
+  overflow: hidden !important; /* Prevent content from affecting shape */
+  position: relative !important; /* For absolute positioning */
 }
 
 /* Ensure background colors are applied with maximum specificity */
