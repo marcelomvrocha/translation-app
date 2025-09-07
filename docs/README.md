@@ -14,6 +14,7 @@ This directory contains comprehensive documentation for the TopBar redesign proj
 - **[TOPBAR_REDESIGN.md](./TOPBAR_REDESIGN.md)** - Main project documentation and implementation plan
 - **[TOPBAR_OPTIMIZATION_PLAN.md](./TOPBAR_OPTIMIZATION_PLAN.md)** - TopBar optimization: duplicate traffic lights fix and search removal
 - **[CUSTOM_TITLE_BAR_PLAN.md](./CUSTOM_TITLE_BAR_PLAN.md)** - Custom title bar implementation: hide native title bar and create custom window controls
+- **[TRAFFIC_LIGHTS_OPTIMIZATION_PLAN.md](./TRAFFIC_LIGHTS_OPTIMIZATION_PLAN.md)** - Traffic lights optimization: perfect round shape and native macOS behavior
 
 ### **🔍 Phase Documentation** (`phases/`)
 - **[PHASE_1_ANALYSIS.md](./phases/PHASE_1_ANALYSIS.md)** - Phase 1: Layout Structure Analysis
@@ -22,6 +23,11 @@ This directory contains comprehensive documentation for the TopBar redesign proj
 - **[PHASE_4_ROADMAP.md](./phases/PHASE_4_ROADMAP.md)** - Phase 4: Final Testing and Documentation Roadmap
 - **[PHASE_4_SUMMARY.md](./phases/PHASE_4_SUMMARY.md)** - Phase 4: Quick Overview and Success Criteria
 - **[PHASE_4_COMPLETION.md](./phases/PHASE_4_COMPLETION.md)** - Phase 4: Final Completion Summary
+
+### **🚦 Traffic Lights Documentation**
+- **[TRAFFIC_LIGHTS_PHASE_1_COMPLETION.md](./TRAFFIC_LIGHTS_PHASE_1_COMPLETION.md)** - Phase 1: Icon symbol replacement with macOS standards
+- **[TRAFFIC_LIGHTS_PHASE_2_COMPLETION.md](./TRAFFIC_LIGHTS_PHASE_2_COMPLETION.md)** - Phase 2: Styling refinement and color fixes
+- **[TRAFFIC_LIGHTS_SHAPE_COMPLETION.md](./TRAFFIC_LIGHTS_SHAPE_COMPLETION.md)** - Phase 3: Perfect round shape and native behavior
 
 ### **🧪 Testing Documentation** (`testing/`)
 - **[PHASE_4_TESTING_PLAN.md](./testing/PHASE_4_TESTING_PLAN.md)** - Comprehensive testing plan and procedures
