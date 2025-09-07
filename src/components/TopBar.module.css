@@ -1,0 +1,136 @@
+/* TopBar CSS Module - Component-specific styles */
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  height: var(--topbar-height);
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: 0 var(--spacing-md);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  box-shadow: var(--shadow-cursor-sm);
+}
+
+.trafficLights {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.trafficLight {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.trafficLightRed {
+  background-color: var(--traffic-light-red);
+}
+
+.trafficLightYellow {
+  background-color: var(--traffic-light-yellow);
+}
+
+.trafficLightGreen {
+  background-color: var(--traffic-light-green);
+}
+
+.trafficLight:hover {
+  opacity: 0.8;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.searchContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchForm {
+  width: 100%;
+  max-width: 20rem;
+}
+
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-primary);
+  border-radius: 0;
+}
+
+.searchInput {
+  flex: 1;
+  text-align: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin: 0;
+  height: var(--input-height-sm);
+  min-height: var(--input-height-sm);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.searchInput:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.controlsContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.button:hover {
+  background-color: var(--background-hover);
+  color: var(--text-primary);
+}
+
+.button.active {
+  background-color: var(--background-active);
+  color: var(--text-primary);
+}
+
+.icon {
+  color: var(--text-secondary);
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+}
+
+.button:hover .icon {
+  color: var(--text-primary);
+}
+
+.button.active .icon {
+  color: var(--text-primary);
+}

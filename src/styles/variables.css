@@ -1,0 +1,229 @@
+/* CSS Custom Properties - Design System Variables */
+
+:root {
+  /* ===== COLORS ===== */
+  
+  /* Background Colors */
+  --background-primary: #1a1a1a;
+  --background-secondary: #161b22;
+  --background-tertiary: #21262d;
+  --background-hover: #2a2a2a;
+  --background-active: #1a1a1a;
+  
+  /* Text Colors */
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6b7280;
+  --text-disabled: #484f58;
+  
+  /* Border Colors */
+  --border-primary: #30363d;
+  --border-secondary: #21262d;
+  --border-focus: #58a6ff;
+  --border-error: #f85149;
+  --border-success: #3fb950;
+  
+  /* Accent Colors */
+  --accent-primary: #58a6ff;
+  --accent-secondary: #ec4899;
+  --accent-success: #3fb950;
+  --accent-warning: #d29922;
+  --accent-error: #f85149;
+  
+  /* macOS Traffic Light Colors */
+  --traffic-light-red: #ff5f57;
+  --traffic-light-yellow: #ffbd2e;
+  --traffic-light-green: #28ca42;
+  
+  /* ===== SPACING ===== */
+  
+  --spacing-xs: 0.125rem;    /* 2px */
+  --spacing-sm: 0.25rem;     /* 4px */
+  --spacing-md: 0.5rem;      /* 8px */
+  --spacing-lg: 1rem;        /* 16px */
+  --spacing-xl: 1.5rem;      /* 24px */
+  --spacing-2xl: 2rem;       /* 32px */
+  --spacing-3xl: 3rem;       /* 48px */
+  
+  /* ===== SIZES ===== */
+  
+  /* Component Heights */
+  --topbar-height: 32px;
+  --button-height-sm: 24px;
+  --button-height-md: 32px;
+  --button-height-lg: 40px;
+  --input-height-sm: 18px;
+  --input-height-md: 24px;
+  --input-height-lg: 32px;
+  
+  /* Icon Sizes */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 28px;
+  --icon-size-2xl: 32px;
+  
+  /* Traffic Light Sizes */
+  --traffic-light-size: 12px;
+  
+  /* ===== BORDER RADIUS ===== */
+  
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+  
+  /* ===== SHADOWS ===== */
+  
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* ===== TYPOGRAPHY ===== */
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;        /* 12px */
+  --text-sm: 0.875rem;       /* 14px */
+  --text-base: 1rem;         /* 16px */
+  --text-lg: 1.125rem;       /* 18px */
+  --text-xl: 1.25rem;        /* 20px */
+  --text-2xl: 1.5rem;        /* 24px */
+  
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* ===== TRANSITIONS ===== */
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
+  
+  /* ===== Z-INDEX ===== */
+  
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* ===== LAYOUT ===== */
+  
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Sidebar Widths */
+  --sidebar-width-min: 200px;
+  --sidebar-width-max: 500px;
+  --sidebar-width-default: 300px;
+  
+  /* Chat Panel Widths */
+  --chat-width-min: 250px;
+  --chat-width-max: 600px;
+  --chat-width-default: 400px;
+  
+  /* Lower Pane Heights */
+  --lower-pane-height: 192px; /* 12rem */
+  --lower-pane-height-min: 120px;
+  --lower-pane-height-max: 400px;
+}
+
+/* ===== DARK THEME OVERRIDES ===== */
+/* These are already set for dark theme, but can be overridden for light theme */
+
+[data-theme="light"] {
+  --background-primary: #ffffff;
+  --background-secondary: #f6f8fa;
+  --background-tertiary: #e1e4e8;
+  --background-hover: #f1f3f4;
+  --background-active: #e1e4e8;
+  
+  --text-primary: #24292e;
+  --text-secondary: #586069;
+  --text-tertiary: #6a737d;
+  --text-disabled: #959da5;
+  
+  --border-primary: #d1d5da;
+  --border-secondary: #e1e4e8;
+  --border-focus: #0366d6;
+  --border-error: #d73a49;
+  --border-success: #28a745;
+}
+
+/* ===== COMPONENT-SPECIFIC VARIABLES ===== */
+
+/* TopBar Specific */
+:root {
+  --topbar-padding-x: var(--spacing-lg);
+  --topbar-search-width: 40%;
+  --topbar-search-max-width: 320px;
+  --topbar-button-spacing: var(--spacing-xs);
+}
+
+/* Button Specific */
+:root {
+  --button-padding-sm: var(--spacing-sm) var(--spacing-md);
+  --button-padding-md: var(--spacing-md) var(--spacing-lg);
+  --button-padding-lg: var(--spacing-lg) var(--spacing-xl);
+  --button-border-width: 1px;
+  --button-font-weight: var(--font-medium);
+}
+
+/* Input Specific */
+:root {
+  --input-padding-sm: var(--spacing-xs) var(--spacing-sm);
+  --input-padding-md: var(--spacing-sm) var(--spacing-md);
+  --input-padding-lg: var(--spacing-md) var(--spacing-lg);
+  --input-border-width: 1px;
+  --input-focus-ring-width: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* These can be used as utility classes or referenced in components */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden {
+  @extend .sr-only;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* These are for reference - actual breakpoints should be handled by Tailwind or media queries */
+
+:root {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}

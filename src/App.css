@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import design system variables */
+@import './styles/variables.css';
+
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
 }
@@ -64,146 +67,91 @@ h1 {
   text-align: center;
 }
 
-input,
-button {
-  border-radius: 6px;
-  border: 1px solid #30363d;
-  padding: 0.5em 1em;
-  font-size: 0.875rem;
-  font-weight: 500;
+/* Base form element styles - more specific selectors */
+.form-input,
+.form-button {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
   font-family: inherit;
-  color: #f0f6fc;
-  background-color: #161b22;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  outline: none;
 }
 
-button {
+.form-button {
   cursor: pointer;
 }
 
-button:hover {
-  border-color: #58a6ff;
-  background-color: #30363d;
-}
-button:active {
-  border-color: #58a6ff;
-  background-color: #21262d;
+.form-button:hover {
+  border-color: var(--accent-primary);
+  background-color: var(--background-hover);
 }
 
-input,
-button {
+.form-button:active {
+  border-color: var(--accent-primary);
+  background-color: var(--background-active);
+}
+
+/* Legacy support - keep some global styles but make them less aggressive */
+input:not(.topbar-search input):not(.topbar-controls button),
+button:not(.topbar-search input):not(.topbar-controls button) {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  font-family: inherit;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
   outline: none;
+}
+
+button:not(.topbar-search input):not(.topbar-controls button) {
+  cursor: pointer;
+}
+
+button:not(.topbar-search input):not(.topbar-controls button):hover {
+  border-color: var(--accent-primary);
+  background-color: var(--background-hover);
+}
+
+button:not(.topbar-search input):not(.topbar-controls button):active {
+  border-color: var(--accent-primary);
+  background-color: var(--background-active);
 }
 
 #greet-input {
   margin-right: 5px;
 }
 
-/* Dark theme styles are now handled by Tailwind classes */
-
-/* Ensure all borders use dark theme colors */
-* {
-  border-color: #30363d;
+/* Dark theme border overrides - organized and specific */
+.dark {
+  border-color: var(--border-primary);
 }
 
-.dark * {
-  border-color: #30363d;
-}
-
-/* Override any white borders */
-.dark .border-white,
-.dark .border-gray-200,
-.dark .border-gray-300 {
-  border-color: #30363d !important;
-}
-
-/* Ensure panel borders are dark */
-.dark .border,
-.dark .border-r,
-.dark .border-l,
-.dark .border-t,
-.dark .border-b {
-  border-color: #30363d !important;
-}
-
-/* Force dark borders on all elements */
-.dark * {
-  border-color: #30363d !important;
-}
-
-/* Specific overrides for common white border classes */
+/* Override light theme borders in dark mode - using higher specificity instead of !important */
 .dark .border-white,
 .dark .border-gray-100,
 .dark .border-gray-200,
 .dark .border-gray-300,
 .dark .border-gray-400 {
-  border-color: #30363d !important;
+  border-color: var(--border-primary);
 }
 
-/* Ensure the root element has dark borders */
-.dark {
-  border-color: #30363d !important;
+/* Ensure panel borders use design system colors - using higher specificity */
+.dark .border,
+.dark .border-r,
+.dark .border-l,
+.dark .border-t,
+.dark .border-b {
+  border-color: var(--border-primary);
 }
 
-/* Dark borders for TopBar buttons */
-.pink-border {
-  border: 1px solid #1a1a1a !important;
-  padding: 0.125em 0.25em !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* Ensure TopBar elements are aligned to top */
-.topbar-container {
-  display: flex !important;
-  align-items: flex-start !important;
-  height: 100% !important;
-}
-
-.topbar-search {
-  display: flex !important;
-  align-items: flex-start !important;
-}
-
-.topbar-controls {
-  display: flex !important;
-  align-items: flex-start !important;
-}
-
-/* Override global padding for TopBar search input */
-.topbar-search input {
-  padding: 0.125em 0.75em !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-}
-
-/* Override global padding for TopBar buttons */
-.topbar-controls button {
-  padding: 0.125em 0.25em !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-}
-
-/* More specific overrides */
-.topbar-container input,
-.topbar-container button {
-  padding: 0.125em 0.5em !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-  line-height: 1 !important;
-}
-
-/* Nuclear option - override everything for TopBar */
-.topbar-container * {
-  padding: 0.125em 0.25em !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-  line-height: 1 !important;
-  box-sizing: border-box !important;
-}
+/* TopBar styles have been moved to TopBar.module.css */

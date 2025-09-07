@@ -106,6 +106,7 @@ function App() {
       
       {/* Settings Modal */}
       <SettingsModal />
+      
     </div>
   );
 }
