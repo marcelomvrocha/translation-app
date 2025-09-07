@@ -5,9 +5,11 @@ import styles from './TopBar.module.css';
 
 interface TopBarProps {
   onSearch?: (query: string) => void;
+  projectName?: string;
+  projectDescription?: string;
 }
 
-export default function TopBar({ onSearch }: TopBarProps) {
+export default function TopBar({ onSearch, projectName = "Untitled Project", projectDescription }: TopBarProps) {
   const { 
     sidebarOpen, 
     chatPanelOpen, 
@@ -32,71 +34,92 @@ export default function TopBar({ onSearch }: TopBarProps) {
 
   return (
     <div className={styles.container}>
-      {/* macOS Window Controls */}
-      <div className={styles.trafficLights}>
-        <div className={`${styles.trafficLight} ${styles.trafficLightRed}`} />
-        <div className={`${styles.trafficLight} ${styles.trafficLightYellow}`} />
-        <div className={`${styles.trafficLight} ${styles.trafficLightGreen}`} />
-      </div>
+      {/* Left Section: Window Controls + View Controls */}
+      <div className={styles.leftSection}>
+        {/* macOS Window Controls */}
+        <div className={styles.trafficLights}>
+          <div className={`${styles.trafficLight} ${styles.trafficLightRed}`} />
+          <div className={`${styles.trafficLight} ${styles.trafficLightYellow}`} />
+          <div className={`${styles.trafficLight} ${styles.trafficLightGreen}`} />
+        </div>
 
-      {/* Spacer to push search bar to center */}
-      <div className={styles.spacer}></div>
-
-      {/* Search Bar - Centered */}
-      <div className={styles.searchContainer}>
-        <form onSubmit={handleSearch} className={styles.searchForm}>
-          <div className={styles.searchInputWrapper}>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              placeholder="Search translations..."
-              className={styles.searchInput}
-            />
+        {/* View Controls */}
+        <div className={styles.viewControls}>
+          <span className={styles.searchLabel}>Search</span>
+          <div className={styles.searchContainer}>
+            <form onSubmit={handleSearch} className={styles.searchForm}>
+              <div className={styles.searchInputWrapper}>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  placeholder="translations..."
+                  className={styles.searchInput}
+                />
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
 
-      {/* Spacer to push controls to right */}
-      <div className={styles.spacer}></div>
+      {/* Center Section: Document Title */}
+      <div className={styles.centerSection}>
+        <h1 className={styles.documentTitle}>{projectName}</h1>
+        {projectDescription && (
+          <p className={styles.documentSubtitle}>{projectDescription}</p>
+        )}
+      </div>
 
-      {/* Right Side Controls */}
-      <div className={styles.controlsContainer}>
-        {/* Sidebar Toggle */}
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className={`${styles.button} ${sidebarOpen ? styles.active : ''}`}
-          title={sidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
-        >
-          <PanelLeft className={styles.icon} />
-        </button>
+      {/* Right Section: Button Groups */}
+      <div className={styles.rightSection}>
+        {/* Navigation Group */}
+        <div className={styles.buttonGroup}>
+          <span className={styles.groupLabel}>View</span>
+          <div className={styles.groupButtons}>
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className={`${styles.button} ${sidebarOpen ? styles.active : ''}`}
+              title={sidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
+            >
+              <PanelLeft className={styles.icon} />
+            </button>
+            <button
+              onClick={() => setLowerPaneOpen(!lowerPaneOpen)}
+              className={`${styles.button} ${lowerPaneOpen ? styles.active : ''}`}
+              title={lowerPaneOpen ? 'Hide Lower Pane' : 'Show Lower Pane'}
+            >
+              <PanelBottom className={styles.icon} />
+            </button>
+          </div>
+        </div>
 
-        {/* Lower Pane Toggle */}
-        <button
-          onClick={() => setLowerPaneOpen(!lowerPaneOpen)}
-          className={`${styles.button} ${lowerPaneOpen ? styles.active : ''}`}
-          title={lowerPaneOpen ? 'Hide Lower Pane' : 'Show Lower Pane'}
-        >
-          <PanelBottom className={styles.icon} />
-        </button>
+        {/* Communication Group */}
+        <div className={styles.buttonGroup}>
+          <span className={styles.groupLabel}>Chat</span>
+          <div className={styles.groupButtons}>
+            <button
+              onClick={() => setChatPanelOpen(!chatPanelOpen)}
+              className={`${styles.button} ${chatPanelOpen ? styles.active : ''}`}
+              title={chatPanelOpen ? 'Hide AI Chat' : 'Show AI Chat'}
+            >
+              <MessageSquare className={styles.icon} />
+            </button>
+          </div>
+        </div>
 
-        {/* Chat Panel Toggle */}
-        <button
-          onClick={() => setChatPanelOpen(!chatPanelOpen)}
-          className={`${styles.button} ${chatPanelOpen ? styles.active : ''}`}
-          title={chatPanelOpen ? 'Hide AI Chat' : 'Show AI Chat'}
-        >
-          <MessageSquare className={styles.icon} />
-        </button>
-
-        {/* Settings */}
-        <button
-          onClick={() => setSettingsOpen(!settingsOpen)}
-          className={`${styles.button} ${settingsOpen ? styles.active : ''}`}
-          title="Settings"
-        >
-          <Settings className={styles.icon} />
-        </button>
+        {/* Settings Group */}
+        <div className={styles.buttonGroup}>
+          <span className={styles.groupLabel}>Settings</span>
+          <div className={styles.groupButtons}>
+            <button
+              onClick={() => setSettingsOpen(!settingsOpen)}
+              className={`${styles.button} ${settingsOpen ? styles.active : ''}`}
+              title="Settings"
+            >
+              <Settings className={styles.icon} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

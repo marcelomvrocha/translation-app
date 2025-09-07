@@ -201,6 +201,31 @@
   --topbar-search-width: 40%;
   --topbar-search-max-width: 320px;
   --topbar-button-spacing: var(--spacing-xs);
+  
+  /* Numbers-Style Layout Variables */
+  --topbar-section-padding: var(--spacing-lg);
+  --topbar-group-gap: var(--spacing-md);
+  --topbar-button-group-gap: var(--spacing-sm);
+  --topbar-section-gap: var(--spacing-xl);
+  
+  /* Typography Hierarchy */
+  --topbar-title-font-size: var(--text-lg);
+  --topbar-title-font-weight: var(--font-semibold);
+  --topbar-subtitle-font-size: var(--text-sm);
+  --topbar-subtitle-font-weight: var(--font-normal);
+  --topbar-label-font-size: var(--text-xs);
+  --topbar-label-font-weight: var(--font-medium);
+  
+  /* Section Layout */
+  --topbar-left-section-width: 1fr;
+  --topbar-center-section-width: 2fr;
+  --topbar-right-section-width: 1fr;
+  
+  /* Button Group Styling */
+  --topbar-group-border-radius: var(--radius-md);
+  --topbar-group-padding: var(--spacing-sm);
+  --topbar-group-background: var(--background-tertiary);
+  --topbar-group-border: 1px solid var(--border-secondary);
 }
 
 /* Button Specific */

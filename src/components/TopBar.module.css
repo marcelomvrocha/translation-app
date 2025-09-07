@@ -1,19 +1,46 @@
-/* TopBar CSS Module - Component-specific styles */
+/* TopBar CSS Module - Numbers-Style Layout */
 
 .container {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: var(--topbar-left-section-width) var(--topbar-center-section-width) var(--topbar-right-section-width);
+  align-items: center;
   height: var(--topbar-height);
   background-color: var(--background-secondary);
   border-bottom: 1px solid var(--border-primary);
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--topbar-section-padding);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--z-fixed);
   box-shadow: var(--shadow-cursor-sm);
+  gap: var(--topbar-section-gap);
 }
+
+/* ===== SECTION LAYOUT ===== */
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: var(--topbar-group-gap);
+}
+
+.centerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--topbar-group-gap);
+}
+
+/* ===== TRAFFIC LIGHTS ===== */
 
 .trafficLights {
   display: flex;
@@ -45,42 +72,105 @@
   opacity: 0.8;
 }
 
+/* ===== VIEW CONTROLS ===== */
+
+.viewControls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.searchLabel {
+  font-size: var(--topbar-label-font-size);
+  font-weight: var(--topbar-label-font-weight);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ===== DOCUMENT TITLE ===== */
+
+.documentTitle {
+  font-size: var(--topbar-title-font-size);
+  font-weight: var(--topbar-title-font-weight);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+.documentSubtitle {
+  font-size: var(--topbar-subtitle-font-size);
+  font-weight: var(--topbar-subtitle-font-weight);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+/* ===== BUTTON GROUPS ===== */
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--topbar-button-group-gap);
+  padding: var(--topbar-group-padding);
+  background-color: var(--topbar-group-background);
+  border: var(--topbar-group-border);
+  border-radius: var(--topbar-group-border-radius);
+}
+
+.groupLabel {
+  font-size: var(--topbar-label-font-size);
+  font-weight: var(--topbar-label-font-weight);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  margin-right: var(--spacing-sm);
+}
+
+.groupButtons {
+  display: flex;
+  align-items: center;
+  gap: var(--topbar-button-group-gap);
+}
+
+/* ===== LEGACY SUPPORT ===== */
+
 .spacer {
   flex: 1;
 }
 
+/* ===== SEARCH COMPONENTS ===== */
+
 .searchContainer {
-  width: 40%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
 .searchForm {
-  width: 100%;
-  max-width: 20rem;
+  display: flex;
+  align-items: center;
 }
 
 .searchInputWrapper {
   display: flex;
   align-items: center;
   background-color: var(--background-primary);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
 }
 
 .searchInput {
-  flex: 1;
-  text-align: center;
   padding: var(--spacing-xs) var(--spacing-sm);
   margin: 0;
   height: var(--input-height-sm);
   min-height: var(--input-height-sm);
-  border: 1px solid var(--border-primary);
+  border: none;
   border-radius: var(--radius-sm);
-  background-color: var(--background-primary);
+  background-color: transparent;
   color: var(--text-primary);
   font-size: var(--text-sm);
   outline: none;
   transition: var(--transition-fast);
+  min-width: 200px;
 }
 
 .searchInput:focus {
@@ -92,15 +182,19 @@
   color: var(--text-secondary);
 }
 
+/* ===== LEGACY CONTROLS ===== */
+
 .controlsContainer {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--spacing-xs);
 }
 
+/* ===== BUTTON STYLES ===== */
+
 .button {
-  border: 1px solid var(--border-primary);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  padding: var(--spacing-xs);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,6 +203,8 @@
   transition: var(--transition-fast);
   cursor: pointer;
   color: var(--text-secondary);
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .button:hover {
@@ -122,15 +218,16 @@
 }
 
 .icon {
-  color: var(--text-secondary);
-  width: var(--icon-size-lg);
-  height: var(--icon-size-lg);
+  color: inherit;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  transition: var(--transition-fast);
 }
 
 .button:hover .icon {
-  color: var(--text-primary);
+  color: inherit;
 }
 
 .button.active .icon {
-  color: var(--text-primary);
+  color: inherit;
 }
