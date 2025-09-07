@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import styles from './TopBar.module.css';
 
 interface TopBarProps {
-  onSearch?: (query: string) => void;
   projectName?: string;
   projectDescription?: string;
 }
 
-export default function TopBar({ onSearch, projectName = "Untitled Project", projectDescription }: TopBarProps) {
+export default function TopBar({ projectName = "Untitled Project", projectDescription }: TopBarProps) {
   const { 
     sidebarOpen, 
     chatPanelOpen, 
@@ -21,45 +19,12 @@ export default function TopBar({ onSearch, projectName = "Untitled Project", pro
     setSettingsOpen
   } = useStore();
   
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch?.(searchQuery);
-  };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
 
   return (
     <div className={styles.container}>
-      {/* Left Section: Window Controls + View Controls */}
+      {/* Left Section: Empty (traffic lights handled by native macOS controls) */}
       <div className={styles.leftSection}>
-        {/* macOS Window Controls */}
-        <div className={styles.trafficLights}>
-          <div className={`${styles.trafficLight} ${styles.trafficLightRed}`} />
-          <div className={`${styles.trafficLight} ${styles.trafficLightYellow}`} />
-          <div className={`${styles.trafficLight} ${styles.trafficLightGreen}`} />
-        </div>
-
-        {/* View Controls */}
-        <div className={styles.viewControls}>
-          <span className={styles.searchLabel}>Search</span>
-          <div className={styles.searchContainer}>
-            <form onSubmit={handleSearch} className={styles.searchForm}>
-              <div className={styles.searchInputWrapper}>
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                  placeholder="translations..."
-                  className={styles.searchInput}
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+        {/* Native macOS window controls are at the top of the window */}
       </div>
 
       {/* Center Section: Document Title */}

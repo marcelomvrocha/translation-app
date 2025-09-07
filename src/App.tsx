@@ -19,29 +19,24 @@ function App() {
     sidebarWidth,
     chatPanelWidth,
     setSidebarWidth,
-    setChatPanelWidth,
-    searchTranslations
+    setChatPanelWidth
   } = useStore();
 
   useEffect(() => {
     loadProjects();
   }, [loadProjects]);
 
-  const handleSearch = (query: string) => {
-    searchTranslations(query);
-  };
 
   return (
     <div className="h-screen flex flex-col bg-background-primary dark">
       {/* Top Bar */}
       <TopBar 
-        onSearch={handleSearch}
         projectName={currentProject?.name}
         projectDescription={currentProject?.description}
       />
 
       {/* Main Layout */}
-      <div className="flex-1 flex" style={{ marginTop: '48px' }}>
+      <div className="flex-1 flex" style={{ marginTop: '76px' }}> {/* 28px (macOS title bar) + 48px (TopBar height) */}
         {/* Sidebar */}
         {sidebarOpen && (
           <ResizablePanel
