@@ -1,5 +1,8 @@
 {
-  "extends": ["stylelint-config-standard"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
   "rules": {
     "at-rule-no-unknown": [
       true,
@@ -9,11 +12,98 @@
           "apply",
           "variants",
           "responsive",
-          "screen"
+          "screen",
+          "extend"
         ]
       }
     ],
     "declaration-block-trailing-semicolon": null,
-    "no-descending-specificity": null
-  }
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["composes"]
+      }
+    ],
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "hue-degree-notation": null,
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme", "screen", "url"]
+      }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["grid-template"]
+      }
+    ],
+    "shorthand-property-no-redundant-values": true,
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": ["sticky"]
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["appearance", "text-size-adjust", "box-shadow", "text-fill-color"]
+      }
+    ],
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": [
+      true,
+      {
+        "ignoreSelectors": ["::-webkit-scrollbar", "::-webkit-scrollbar-track", "::-webkit-scrollbar-thumb", "::-webkit-scrollbar-corner", "::-moz-selection", "::-webkit-input-placeholder", "::-moz-placeholder", ":-ms-input-placeholder", ":-webkit-autofill"]
+      }
+    ],
+    "comment-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "rule-empty-line-before": null,
+    "block-opening-brace-space-before": null,
+    "declaration-colon-space-after": null,
+    "declaration-colon-space-before": null,
+    "declaration-block-semicolon-space-after": null,
+    "declaration-block-semicolon-space-before": null,
+    "declaration-block-trailing-semicolon": null,
+    "block-closing-brace-newline-after": null,
+    "block-opening-brace-newline-after": null,
+    "block-closing-brace-newline-before": null,
+    "block-opening-brace-space-before": null,
+    "indentation": null,
+    "linebreaks": null,
+    "max-line-length": null,
+    "no-eol-whitespace": null,
+    "no-missing-end-of-source-newline": null,
+    "string-quotes": null,
+    "unicode-bom": null,
+    "font-family-name-quotes": null,
+    "value-keyword-case": null,
+    "keyframes-name-pattern": null,
+    "no-duplicate-selectors": null,
+    "color-hex-length": null,
+    "custom-property-empty-line-before": null,
+    "import-notation": null,
+    "no-invalid-position-at-import-rule": null,
+    "declaration-empty-line-before": null,
+    "selector-not-notation": null
+  },
+  "ignoreFiles": [
+    "node_modules/**/*",
+    "dist/**/*",
+    "build/**/*",
+    "*.min.css"
+  ]
 }

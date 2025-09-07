@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import CSS reset first for cross-browser consistency */
+@import './styles/reset.css';
+
 /* Import design system variables */
 @import './styles/variables.css';
 
