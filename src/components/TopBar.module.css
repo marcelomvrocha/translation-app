@@ -67,17 +67,34 @@
   background-color: #ff5f57;
 }
 
+.closeButton:hover {
+  background-color: #ff3b30;
+}
+
 .minimizeButton {
   background-color: #ffbd2e;
+}
+
+.minimizeButton:hover {
+  background-color: #ff9500;
 }
 
 .maximizeButton {
   background-color: #28ca42;
 }
 
+.maximizeButton:hover {
+  background-color: #30d158;
+}
+
 .windowButton:hover {
   opacity: 0.8;
   transform: scale(1.1);
+}
+
+.windowButton:active {
+  transform: scale(0.95);
+  opacity: 0.6;
 }
 
 .windowIcon {
@@ -205,6 +222,20 @@
     grid-template-columns: 1fr 2fr 1fr;
     gap: var(--spacing-sm);
     padding: 0 var(--spacing-sm);
+  }
+  
+  .windowControls {
+    padding: var(--spacing-xs);
+  }
+  
+  .windowButton {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .windowIcon {
+    width: 4px;
+    height: 4px;
   }
   
   .groupLabel {

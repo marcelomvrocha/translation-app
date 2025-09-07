@@ -1,5 +1,6 @@
 import { PanelLeft, PanelBottom, MessageSquare, Settings, X, Minus, Square } from 'lucide-react';
 import { useStore } from '../store/useStore';
+import { useWindowControls } from '../hooks/useWindowControls';
 import styles from './TopBar.module.css';
 
 interface TopBarProps {
@@ -19,21 +20,12 @@ export default function TopBar({ projectName = "Untitled Project", projectDescri
     setSettingsOpen
   } = useStore();
   
-  // Window control handlers (will be implemented in Phase 3)
-  const handleClose = () => {
-    console.log('Close window');
-    // TODO: Implement window close functionality
-  };
+  // Window control handlers
+  const { closeWindow, minimizeWindow, toggleMaximize } = useWindowControls();
 
-  const handleMinimize = () => {
-    console.log('Minimize window');
-    // TODO: Implement window minimize functionality
-  };
-
-  const handleMaximize = () => {
-    console.log('Maximize window');
-    // TODO: Implement window maximize functionality
-  };
+  const handleClose = () => closeWindow();
+  const handleMinimize = () => minimizeWindow();
+  const handleMaximize = () => toggleMaximize();
 
   return (
     <div className={styles.container}>
