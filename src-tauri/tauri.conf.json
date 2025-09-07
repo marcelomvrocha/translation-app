@@ -19,7 +19,6 @@
         "minWidth": 800,
         "minHeight": 600,
         "decorations": false,
-        "titleBarStyle": "overlay",
         "resizable": true,
         "maximizable": true,
         "minimizable": true,
@@ -30,19 +29,6 @@
     ],
     "security": {
       "csp": null
-    },
-    "allowlist": {
-      "window": {
-        "all": false,
-        "close": true,
-        "hide": true,
-        "show": true,
-        "maximize": true,
-        "unmaximize": true,
-        "minimize": true,
-        "unminimize": true,
-        "startDragging": true
-      }
     }
   },
   "bundle": {
