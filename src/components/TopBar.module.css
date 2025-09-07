@@ -9,12 +9,13 @@
   border-bottom: 1px solid var(--border-primary);
   padding: 0 var(--topbar-section-padding);
   position: fixed;
-  top: 28px; /* Position below native macOS title bar */
+  top: 0; /* Custom title bar - no native title bar */
   left: 0;
   right: 0;
   z-index: var(--z-fixed);
   box-shadow: var(--shadow-cursor-sm);
   gap: var(--topbar-section-gap);
+  -webkit-app-region: drag; /* Allow dragging */
 }
 
 /* ===== SECTION LAYOUT ===== */
@@ -40,8 +41,50 @@
   gap: var(--topbar-group-gap);
 }
 
-/* ===== TRAFFIC LIGHTS ===== */
-/* Traffic lights are now handled by native macOS window controls */
+/* ===== WINDOW CONTROLS ===== */
+
+.windowControls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+}
+
+.windowButton {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  -webkit-app-region: no-drag; /* Prevent dragging on window controls */
+}
+
+.closeButton {
+  background-color: #ff5f57;
+}
+
+.minimizeButton {
+  background-color: #ffbd2e;
+}
+
+.maximizeButton {
+  background-color: #28ca42;
+}
+
+.windowButton:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.windowIcon {
+  width: 6px;
+  height: 6px;
+  color: rgba(0, 0, 0, 0.6);
+}
 
 
 /* ===== DOCUMENT TITLE ===== */
@@ -127,6 +170,7 @@
   color: var(--text-secondary);
   min-width: 28px;
   min-height: 28px;
+  -webkit-app-region: no-drag; /* Prevent dragging on buttons */
 }
 
 .button:hover {

@@ -12,13 +12,37 @@
   "app": {
     "windows": [
       {
-        "title": "gaia",
-        "width": 800,
-        "height": 600
+        "label": "main",
+        "title": "Gaia Translation App",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "decorations": false,
+        "titleBarStyle": "overlay",
+        "resizable": true,
+        "maximizable": true,
+        "minimizable": true,
+        "closable": true,
+        "center": true,
+        "transparent": false
       }
     ],
     "security": {
       "csp": null
+    },
+    "allowlist": {
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "unmaximize": true,
+        "minimize": true,
+        "unminimize": true,
+        "startDragging": true
+      }
     }
   },
   "bundle": {

@@ -1,4 +1,4 @@
-import { PanelLeft, PanelBottom, MessageSquare, Settings } from 'lucide-react';
+import { PanelLeft, PanelBottom, MessageSquare, Settings, X, Minus, Square } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import styles from './TopBar.module.css';
 
@@ -19,12 +19,50 @@ export default function TopBar({ projectName = "Untitled Project", projectDescri
     setSettingsOpen
   } = useStore();
   
+  // Window control handlers (will be implemented in Phase 3)
+  const handleClose = () => {
+    console.log('Close window');
+    // TODO: Implement window close functionality
+  };
+
+  const handleMinimize = () => {
+    console.log('Minimize window');
+    // TODO: Implement window minimize functionality
+  };
+
+  const handleMaximize = () => {
+    console.log('Maximize window');
+    // TODO: Implement window maximize functionality
+  };
 
   return (
     <div className={styles.container}>
-      {/* Left Section: Empty (traffic lights handled by native macOS controls) */}
+      {/* Left Section: Window Controls */}
       <div className={styles.leftSection}>
-        {/* Native macOS window controls are at the top of the window */}
+        {/* Window Controls */}
+        <div className={styles.windowControls}>
+          <button 
+            className={`${styles.windowButton} ${styles.closeButton}`}
+            onClick={handleClose}
+            title="Close"
+          >
+            <X className={styles.windowIcon} />
+          </button>
+          <button 
+            className={`${styles.windowButton} ${styles.minimizeButton}`}
+            onClick={handleMinimize}
+            title="Minimize"
+          >
+            <Minus className={styles.windowIcon} />
+          </button>
+          <button 
+            className={`${styles.windowButton} ${styles.maximizeButton}`}
+            onClick={handleMaximize}
+            title="Maximize"
+          >
+            <Square className={styles.windowIcon} />
+          </button>
+        </div>
       </div>
 
       {/* Center Section: Document Title */}

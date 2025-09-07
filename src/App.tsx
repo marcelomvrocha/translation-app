@@ -36,7 +36,7 @@ function App() {
       />
 
       {/* Main Layout */}
-      <div className="flex-1 flex" style={{ marginTop: '76px' }}> {/* 28px (macOS title bar) + 48px (TopBar height) */}
+      <div className="flex-1 flex" style={{ marginTop: '48px' }}> {/* 48px (TopBar height) - no native title bar */}
         {/* Sidebar */}
         {sidebarOpen && (
           <ResizablePanel
