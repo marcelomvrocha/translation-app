@@ -64,7 +64,7 @@ export default function TopBar({ onSearch, projectName = "Untitled Project", pro
 
       {/* Center Section: Document Title */}
       <div className={styles.centerSection}>
-        <h1 className={styles.documentTitle}>{projectName}</h1>
+        <h1 className={styles.documentTitle}>{projectName || "Untitled Project"}</h1>
         {projectDescription && (
           <p className={styles.documentSubtitle}>{projectDescription}</p>
         )}

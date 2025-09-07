@@ -34,10 +34,14 @@ function App() {
   return (
     <div className="h-screen flex flex-col bg-background-primary dark">
       {/* Top Bar */}
-      <TopBar onSearch={handleSearch} />
+      <TopBar 
+        onSearch={handleSearch}
+        projectName={currentProject?.name}
+        projectDescription={currentProject?.description}
+      />
 
       {/* Main Layout */}
-      <div className="flex-1 flex" style={{ marginTop: '32px' }}>
+      <div className="flex-1 flex" style={{ marginTop: '48px' }}>
         {/* Sidebar */}
         {sidebarOpen && (
           <ResizablePanel

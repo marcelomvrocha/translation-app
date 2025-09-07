@@ -95,6 +95,8 @@
   color: var(--text-primary);
   margin: 0;
   line-height: var(--leading-tight);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.01em;
 }
 
 .documentSubtitle {
@@ -115,6 +117,13 @@
   background-color: var(--topbar-group-background);
   border: var(--topbar-group-border);
   border-radius: var(--topbar-group-border-radius);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.buttonGroup:hover {
+  background-color: var(--background-hover);
+  border-color: var(--border-focus);
 }
 
 .groupLabel {
@@ -156,6 +165,13 @@
   background-color: var(--background-primary);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-primary);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.searchInputWrapper:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--border-focus);
 }
 
 .searchInput {
@@ -230,4 +246,45 @@
 
 .button.active .icon {
   color: inherit;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .searchInput {
+    min-width: 120px;
+  }
+  
+  .groupLabel {
+    display: none;
+  }
+  
+  .buttonGroup {
+    padding: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-xs);
+  }
+  
+  .searchInput {
+    min-width: 80px;
+  }
+  
+  .documentTitle {
+    font-size: var(--text-sm);
+  }
+  
+  .documentSubtitle {
+    display: none;
+  }
 }
