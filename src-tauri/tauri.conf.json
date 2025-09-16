@@ -19,11 +19,6 @@
         "minWidth": 800,
         "minHeight": 600,
         "decorations": true,
-        "titleBarStyle": "Transparent",
-        "titleBarOverlay": {
-          "color": "rgba(30, 30, 30, 0.85)",
-          "symbolColor": "#ffffff"
-        },
         "resizable": true,
         "maximizable": true,
         "minimizable": true,

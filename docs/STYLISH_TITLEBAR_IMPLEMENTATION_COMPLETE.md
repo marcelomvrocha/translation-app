@@ -50,13 +50,11 @@ The stylish title bar has been successfully implemented for the GAIA Translation
 ```json
 {
   "title": "GAIA",
-  "titleBarStyle": "Transparent",
-  "titleBarOverlay": {
-    "color": "rgba(30, 30, 30, 0.85)",
-    "symbolColor": "#ffffff"
-  }
+  "decorations": true
 }
 ```
+
+**Note**: The `titleBarOverlay` property is not supported in the current Tauri version. The custom styling is handled entirely by the TitleBarOverlay component with CSS backdrop-filter and transparency effects.
 
 ### **Component Structure**
 ```
@@ -71,11 +69,12 @@ TitleBarOverlay
 ```
 
 ### **Styling Features**
-- **Backdrop Blur**: 10px blur effect for modern look
+- **Backdrop Blur**: 10px blur effect for modern look (CSS backdrop-filter)
 - **Gradient Text**: Blue gradient for GAIA branding
 - **Smooth Transitions**: 0.3s cubic-bezier animations
 - **Hover Effects**: Scale and color transitions
 - **Responsive Design**: Adapts to different screen sizes
+- **Native Integration**: Works with native macOS title bar
 
 ## 🌟 Key Features
 
