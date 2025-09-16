@@ -73,7 +73,7 @@
   flex-grow: 0; /* Prevent flex growing */
   flex-basis: 12px; /* Fixed basis */
   overflow: hidden; /* Prevent content from affecting shape */
-  position: relative; /* For absolute positioning of symbols */
+  aspect-ratio: 1 / 1 !important; /* Force perfect square aspect ratio */
 }
 
 .closeButton {
@@ -105,19 +105,9 @@
   box-shadow: none; /* Keep perfectly round without shadow distortion */
 }
 
-.windowButton:hover .trafficLightSymbol {
-  opacity: 1 !important; /* Show symbol on hover */
-  transform: translate(-50%, -50%) scale(1.1); /* Maintain centering and subtle scaling */
-}
-
 .windowButton:active {
   transform: scale(0.95);
   opacity: 0.6;
-}
-
-.windowButton:active .trafficLightSymbol {
-  transform: scale(0.9);
-  opacity: 0.7;
 }
 
 .windowButton:focus {
@@ -126,78 +116,8 @@
   box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
 }
 
-.trafficLightSymbol {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 6px; /* Smaller size to not affect button shape */
-  font-weight: 300; /* Lighter weight like macOS */
-  line-height: 1;
-  color: #000000 !important;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
-  height: auto;
-  user-select: none;
-  -webkit-user-select: none;
-  letter-spacing: 0; /* No letter spacing */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  opacity: 0; /* Hidden by default - only show on hover */
-  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* Prevent symbol from interfering with button clicks */
-}
-
-/* Ensure traffic light symbols are always dark, overriding any inherited colors */
-.windowControls .windowButton .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-.windowControls .windowButton:hover .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-.windowControls .windowButton:active .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-.windowControls .windowButton:focus .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-/* Additional specificity to override any global styles */
-.container .leftSection .windowControls .windowButton .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-/* Nuclear option - target the exact button classes */
-.closeButton .trafficLightSymbol,
-.minimizeButton .trafficLightSymbol,
-.maximizeButton .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-/* Even more specific targeting */
-.windowControls .closeButton .trafficLightSymbol,
-.windowControls .minimizeButton .trafficLightSymbol,
-.windowControls .maximizeButton .trafficLightSymbol {
-  color: #000000 !important;
-}
-
-/* Target span elements directly */
-.windowControls span {
-  color: #000000 !important;
-}
-
-/* Final nuclear option - target all text in window controls */
-.windowControls * {
-  color: #000000 !important;
-}
-
-/* Ensure perfect roundness for traffic light buttons */
-.windowControls .windowButton {
+/* Ensure perfect roundness for traffic light buttons - Maximum specificity */
+.container .leftSection .windowControls .windowButton {
   aspect-ratio: 1 / 1 !important; /* Force perfect square aspect ratio */
   border-radius: 50% !important; /* Force perfect circle */
   width: 12px !important;
@@ -212,7 +132,10 @@
   flex-shrink: 0 !important; /* Prevent flex shrinking */
   flex-grow: 0 !important; /* Prevent flex growing */
   overflow: hidden !important; /* Prevent content from affecting shape */
-  position: relative !important; /* For absolute positioning */
+  padding: 0 !important; /* Override any global padding */
+  margin: 0 !important; /* Override any global margin */
+  font-size: 0 !important; /* Prevent font size from affecting shape */
+  line-height: 0 !important; /* Prevent line height from affecting shape */
 }
 
 /* Ensure background colors are applied with maximum specificity */
@@ -238,6 +161,62 @@
 
 .windowControls .maximizeButton:hover {
   background-color: #30d158 !important;
+}
+
+/* Nuclear option - Override ALL possible global styles */
+.container .leftSection .windowControls button.windowButton.closeButton,
+.container .leftSection .windowControls button.windowButton.minimizeButton,
+.container .leftSection .windowControls button.windowButton.maximizeButton {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Final nuclear option - Target button elements directly with maximum specificity */
+button.windowButton.closeButton,
+button.windowButton.minimizeButton,
+button.windowButton.maximizeButton {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
 
 
@@ -366,8 +345,14 @@
   }
   
   .windowButton {
-    width: 10px;
-    height: 10px;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
+    max-width: 12px !important;
+    max-height: 12px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
   }
   
   .windowIcon {

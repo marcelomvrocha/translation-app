@@ -38,21 +38,18 @@ export default function TopBar({ projectName = "Untitled Project", projectDescri
             onClick={handleClose}
             title="Close"
           >
-            <span className={styles.trafficLightSymbol}>×</span>
           </button>
           <button 
             className={`${styles.windowButton} ${styles.minimizeButton}`}
             onClick={handleMinimize}
             title="Minimize"
           >
-            <span className={styles.trafficLightSymbol}>−</span>
           </button>
           <button 
             className={`${styles.windowButton} ${styles.maximizeButton}`}
             onClick={handleMaximize}
             title="Maximize"
           >
-            <span className={styles.trafficLightSymbol}>+</span>
           </button>
         </div>
       </div>
