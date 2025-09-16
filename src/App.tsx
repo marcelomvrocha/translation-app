@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useStore } from './store/useStore';
+import { useWindowTitle } from './hooks/useWindowTitle';
 import Sidebar from './components/Sidebar.tsx';
 import TranslationGrid from './components/TranslationGrid.tsx';
 import ChatPanel from './components/ChatPanel.tsx';
 import ProjectModal from './components/ProjectModal.tsx';
 import ResizablePanel from './components/ResizablePanel.tsx';
-import TopBar from './components/TopBar.tsx';
 import SettingsModal from './components/SettingsModal.tsx';
 import './App.css';
 
@@ -26,17 +26,17 @@ function App() {
     loadProjects();
   }, [loadProjects]);
 
+  // Update window title when project changes
+  useWindowTitle({ 
+    projectName: currentProject?.name 
+  });
+
 
   return (
     <div className="h-screen flex flex-col bg-background-primary dark">
-      {/* Top Bar */}
-      <TopBar 
-        projectName={currentProject?.name}
-        projectDescription={currentProject?.description}
-      />
 
       {/* Main Layout */}
-      <div className="flex-1 flex" style={{ marginTop: '48px' }}> {/* 48px (TopBar height) - no native title bar */}
+      <div className="flex-1 flex">
         {/* Sidebar */}
         {sidebarOpen && (
           <ResizablePanel
