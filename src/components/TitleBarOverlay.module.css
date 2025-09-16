@@ -1,241 +1,359 @@
-/* Title Bar Overlay - Modern Stylish Design */
+/**
+ * Title Bar Overlay - Modern Stylish Design
+ * 
+ * This CSS module provides styling for the custom title bar overlay component.
+ * It creates a modern, glass-morphism design that sits on top of the native macOS title bar.
+ * 
+ * Key Features:
+ * - Glass-morphism effect with backdrop blur
+ * - Dynamic theme support (light/dark mode)
+ * - Responsive design for different screen sizes
+ * - Accessibility features (high contrast, reduced motion)
+ * - Smooth animations and transitions
+ * - Three-section layout (left, center, right)
+ * 
+ * @fileoverview CSS styling for the title bar overlay component
+ * @author Development Team
+ * @version 1.0.0
+ */
 
+/* 
+ * Base Overlay Container
+ * 
+ * The main container for the title bar overlay. It's positioned fixed at the top
+ * of the viewport and spans the full width. The height matches the standard
+ * macOS title bar height (28px) for perfect alignment.
+ * 
+ * Key properties:
+ * - Fixed positioning for overlay behavior
+ * - Flexbox layout for three-section design
+ * - High z-index to appear above content
+ * - WebKit app region for window dragging
+ * - Backdrop filter for glass effect
+ */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 28px; /* Standard macOS title bar height */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 1000;
-  -webkit-app-region: drag; /* Allow window dragging */
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;           /* Fixed positioning for overlay behavior */
+  top: 0;                    /* Position at top of viewport */
+  left: 0;                   /* Align to left edge */
+  right: 0;                  /* Span full width */
+  height: 28px;              /* Standard macOS title bar height */
+  display: flex;             /* Flexbox layout for sections */
+  align-items: center;       /* Vertical centering of content */
+  justify-content: space-between; /* Distribute sections evenly */
+  padding: 0 20px;           /* Horizontal padding for content spacing */
+  z-index: 1000;             /* High z-index to appear above content */
+  -webkit-app-region: drag;  /* Allow window dragging on this element */
+  backdrop-filter: blur(10px); /* Glass-morphism blur effect */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transitions */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
 }
 
-/* Theme Variants */
+/* 
+ * Theme Variants
+ * 
+ * These classes provide different color schemes for light and dark modes.
+ * The theme is automatically applied based on the user's system preference
+ * and can be dynamically switched.
+ * 
+ * Light Theme: Light background with dark text for better readability in bright environments
+ * Dark Theme: Dark background with light text for better readability in dark environments
+ */
+
+/* Light Theme - Optimized for bright environments */
 .light {
-  background: rgba(245, 245, 245, 0.9);
-  color: #1f2937;
-  border-bottom-color: rgba(0, 0, 0, 0.1);
+  background: rgba(245, 245, 245, 0.9);  /* Light gray background with transparency */
+  color: #1f2937;                        /* Dark gray text for contrast */
+  border-bottom-color: rgba(0, 0, 0, 0.1); /* Subtle dark border */
 }
 
+/* Dark Theme - Optimized for dark environments */
 .dark {
-  background: rgba(30, 30, 30, 0.85);
-  color: #f9fafb;
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 30, 0.85);    /* Dark gray background with transparency */
+  color: #f9fafb;                        /* Light gray text for contrast */
+  border-bottom-color: rgba(255, 255, 255, 0.1); /* Subtle light border */
 }
 
-/* Section Layout */
+/* 
+ * Section Layout
+ * 
+ * The title bar is divided into three equal sections using flexbox.
+ * Each section takes up 1/3 of the available width and can shrink
+ * when space is limited (responsive design).
+ * 
+ * Layout Structure:
+ * - Left Section: GAIA branding and project name
+ * - Center Section: Project description and status
+ * - Right Section: Settings button and controls
+ */
+
+/* Left Section - GAIA Branding and Project Name */
 .leftSection {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  min-width: 0; /* Allow shrinking */
+  display: flex;             /* Flexbox for content alignment */
+  align-items: center;       /* Vertical centering */
+  flex: 1;                   /* Take equal share of available space */
+  min-width: 0;              /* Allow shrinking when space is limited */
 }
 
+/* Center Section - Project Description and Status */
 .centerSection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-  padding: 0 20px;
+  display: flex;             /* Flexbox for content alignment */
+  align-items: center;       /* Vertical centering */
+  justify-content: center;   /* Horizontal centering of content */
+  flex: 1;                   /* Take equal share of available space */
+  min-width: 0;              /* Allow shrinking when space is limited */
+  padding: 0 20px;           /* Horizontal padding for content spacing */
 }
 
+/* Right Section - Settings Button and Controls */
 .rightSection {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-  min-width: 0;
+  display: flex;             /* Flexbox for content alignment */
+  align-items: center;       /* Vertical centering */
+  justify-content: flex-end; /* Right-align content */
+  flex: 1;                   /* Take equal share of available space */
+  min-width: 0;              /* Allow shrinking when space is limited */
 }
 
-/* GAIA Branding */
+/* 
+ * GAIA Branding
+ * 
+ * Styles for the app branding section, including the main "GAIA" title
+ * and the current project indicator. The branding uses a modern gradient
+ * design with smooth hover effects.
+ */
+
+/* Branding Container - Groups app title and project indicator */
 .branding {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  -webkit-app-region: drag;
+  display: flex;             /* Flexbox for horizontal layout */
+  align-items: center;       /* Vertical centering */
+  gap: 8px;                  /* Space between title and project indicator */
+  -webkit-app-region: drag;  /* Allow window dragging on this element */
 }
 
+/* App Title - "GAIA" with gradient styling */
 .appTitle {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; /* System font stack */
+  font-size: 14px;           /* Readable size for title bar */
+  font-weight: 700;          /* Bold weight for emphasis */
+  letter-spacing: 1px;       /* Increased letter spacing for modern look */
+  text-transform: uppercase; /* Uppercase for brand consistency */
+  background: linear-gradient(135deg, #1e40af, #3b82f6); /* Blue gradient background */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  background-clip: text;     /* Standard property for gradient text */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
 }
 
+/* App Title Hover Effect - Subtle scale animation */
 .appTitle:hover {
-  transform: scale(1.02);
+  transform: scale(1.02);    /* Slight scale up on hover */
 }
 
+/* Project Indicator - Current project name display */
 .projectIndicator {
-  font-size: 12px;
-  font-weight: 500;
-  opacity: 0.8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-  transition: opacity 0.2s ease;
+  font-size: 12px;           /* Smaller than app title */
+  font-weight: 500;          /* Medium weight */
+  opacity: 0.8;              /* Slightly transparent for hierarchy */
+  white-space: nowrap;       /* Prevent text wrapping */
+  overflow: hidden;          /* Hide overflow text */
+  text-overflow: ellipsis;   /* Show ellipsis for long text */
+  max-width: 200px;          /* Maximum width before truncation */
+  transition: opacity 0.2s ease; /* Smooth opacity transition */
 }
 
+/* Project Indicator Hover Effect - Full opacity on hover */
 .projectIndicator:hover {
-  opacity: 1;
+  opacity: 1;                /* Full opacity on hover for better readability */
 }
 
-/* Project Description */
+/* 
+ * Project Description
+ * 
+ * Styles for the project description text displayed in the center section.
+ * This text is optional and only shown when a project has a description.
+ */
+
+/* Project Description - Optional project description text */
 .projectDescription {
-  font-size: 11px;
-  opacity: 0.7;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 300px;
-  text-align: center;
-  transition: opacity 0.2s ease;
+  font-size: 11px;           /* Small size for secondary information */
+  opacity: 0.7;              /* Reduced opacity for hierarchy */
+  white-space: nowrap;       /* Prevent text wrapping */
+  overflow: hidden;          /* Hide overflow text */
+  text-overflow: ellipsis;   /* Show ellipsis for long text */
+  max-width: 300px;          /* Maximum width before truncation */
+  text-align: center;        /* Center align in the section */
+  transition: opacity 0.2s ease; /* Smooth opacity transition */
 }
 
+/* Project Description Hover Effect - Full opacity on hover */
 .projectDescription:hover {
-  opacity: 1;
+  opacity: 1;                /* Full opacity on hover for better readability */
 }
 
-/* Settings Button */
+/* 
+ * Settings Button
+ * 
+ * Interactive button for accessing application settings.
+ * Features modern hover effects, accessibility support, and smooth animations.
+ * The button is not draggable to allow proper interaction.
+ */
+
+/* Settings Button - Main button container */
 .settingsButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border: none;
-  background: transparent;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-app-region: no-drag; /* Prevent dragging on button */
-  color: inherit;
+  display: flex;             /* Flexbox for icon centering */
+  align-items: center;       /* Vertical centering */
+  justify-content: center;   /* Horizontal centering */
+  width: 24px;               /* Fixed width for consistent sizing */
+  height: 24px;              /* Fixed height for consistent sizing */
+  border: none;              /* Remove default border */
+  background: transparent;   /* Transparent background by default */
+  border-radius: 6px;        /* Rounded corners for modern look */
+  cursor: pointer;           /* Pointer cursor for interaction */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transitions */
+  -webkit-app-region: no-drag; /* Prevent window dragging on this element */
+  color: inherit;            /* Inherit text color from parent */
 }
 
+/* Settings Button Hover Effect - Interactive feedback */
 .settingsButton:hover {
-  background: rgba(59, 130, 246, 0.1);
-  transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  background: rgba(59, 130, 246, 0.1); /* Light blue background on hover */
+  transform: scale(1.1);               /* Scale up slightly */
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2); /* Blue shadow for depth */
 }
 
+/* Settings Button Active State - Pressed feedback */
 .settingsButton:active {
-  transform: scale(0.95);
-  background: rgba(59, 130, 246, 0.2);
+  transform: scale(0.95);              /* Scale down when pressed */
+  background: rgba(59, 130, 246, 0.2); /* Darker background when pressed */
 }
 
+/* Settings Button Focus State - Keyboard navigation */
 .settingsButton:focus {
-  outline: 2px solid rgba(59, 130, 246, 0.5);
-  outline-offset: 2px;
+  outline: 2px solid rgba(59, 130, 246, 0.5); /* Blue outline for focus */
+  outline-offset: 2px;                /* Outline offset for better visibility */
 }
 
+/* Settings Icon - Gear icon styling */
 .settingsIcon {
-  width: 16px;
-  height: 16px;
-  transition: all 0.2s ease;
+  width: 16px;               /* Icon width */
+  height: 16px;              /* Icon height */
+  transition: all 0.2s ease; /* Smooth transitions for icon animations */
 }
 
+/* Settings Icon Hover Effect - Rotation animation */
 .settingsButton:hover .settingsIcon {
-  color: #3b82f6;
-  transform: rotate(15deg);
+  color: #3b82f6;            /* Blue color on hover */
+  transform: rotate(15deg);  /* Rotate icon on hover for playful effect */
 }
 
-/* Responsive Design */
+/* 
+ * Responsive Design
+ * 
+ * Media queries for different screen sizes to ensure the title bar
+ * remains functional and readable across all devices.
+ * 
+ * Breakpoints:
+ * - Mobile: ≤ 768px - Reduced padding and smaller text
+ * - Small Mobile: ≤ 480px - Hide secondary text, minimal layout
+ */
+
+/* Mobile Devices - Tablets and small laptops */
 @media (max-width: 768px) {
   .overlay {
-    padding: 0 12px;
+    padding: 0 12px;          /* Reduced horizontal padding for mobile */
   }
   
   .projectIndicator {
-    max-width: 120px;
+    max-width: 120px;         /* Smaller max width for project name */
   }
   
   .projectDescription {
-    max-width: 150px;
-    font-size: 10px;
+    max-width: 150px;         /* Smaller max width for description */
+    font-size: 10px;          /* Smaller font size for mobile */
   }
 }
 
+/* Small Mobile Devices - Phones and very small screens */
 @media (max-width: 480px) {
   .overlay {
-    padding: 0 8px;
+    padding: 0 8px;           /* Minimal padding for small screens */
   }
   
   .projectIndicator {
-    display: none;
+    display: none;            /* Hide project indicator to save space */
   }
   
   .projectDescription {
-    display: none;
+    display: none;            /* Hide project description to save space */
   }
   
   .appTitle {
-    font-size: 13px;
+    font-size: 13px;          /* Slightly smaller app title */
   }
 }
 
-/* Animation Keyframes */
+/* 
+ * Animation Keyframes
+ * 
+ * Keyframe animations for smooth entrance effects and transitions.
+ * The fadeIn animation provides a subtle entrance effect for the title bar.
+ */
+
+/* Fade In Animation - Smooth entrance effect */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(-10px);
+    opacity: 0;               /* Start invisible */
+    transform: translateY(-10px); /* Start slightly above */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;               /* End fully visible */
+    transform: translateY(0); /* End at normal position */
   }
 }
 
+/* Apply Fade In Animation to Overlay */
 .overlay {
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out; /* Smooth fade in on load */
 }
 
-/* Focus States for Accessibility */
+/* 
+ * Accessibility Features
+ * 
+ * CSS rules to improve accessibility for users with different needs,
+ * including keyboard navigation, high contrast mode, and reduced motion preferences.
+ */
+
+/* Focus States for Accessibility - Enhanced keyboard navigation */
 .settingsButton:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
+  outline: 2px solid #3b82f6; /* Blue outline for keyboard focus */
+  outline-offset: 2px;        /* Outline offset for better visibility */
 }
 
-/* High Contrast Mode Support */
+/* High Contrast Mode Support - Enhanced visibility for users with vision impairments */
 @media (prefers-contrast: high) {
   .overlay {
-    border-bottom-width: 2px;
+    border-bottom-width: 2px; /* Thicker border for better visibility */
   }
   
   .appTitle {
-    -webkit-text-fill-color: initial;
-    color: inherit;
+    -webkit-text-fill-color: initial; /* Use solid color instead of gradient */
+    color: inherit;           /* Inherit color for better contrast */
   }
   
   .settingsButton:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1); /* High contrast background on hover */
   }
 }
 
-/* Reduced Motion Support */
+/* Reduced Motion Support - Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .overlay,
   .appTitle,
   .settingsButton,
   .settingsIcon {
-    transition: none;
+    transition: none;         /* Disable all transitions */
   }
   
   .overlay {
-    animation: none;
+    animation: none;          /* Disable keyframe animations */
   }
 }
