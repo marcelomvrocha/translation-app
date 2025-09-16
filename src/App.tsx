@@ -7,6 +7,7 @@ import ChatPanel from './components/ChatPanel.tsx';
 import ProjectModal from './components/ProjectModal.tsx';
 import ResizablePanel from './components/ResizablePanel.tsx';
 import SettingsModal from './components/SettingsModal.tsx';
+import TitleBarOverlay from './components/TitleBarOverlay.tsx';
 import './App.css';
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
 
   return (
     <div className="h-screen flex flex-col bg-background-primary dark">
+      {/* Title Bar Overlay */}
+      <TitleBarOverlay />
 
       {/* Main Layout */}
       <div className="flex-1 flex">

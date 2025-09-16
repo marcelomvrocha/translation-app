@@ -13,12 +13,17 @@
     "windows": [
       {
         "label": "main",
-        "title": "Gaia Translation App",
+        "title": "GAIA",
         "width": 1200,
         "height": 800,
         "minWidth": 800,
         "minHeight": 600,
         "decorations": true,
+        "titleBarStyle": "Transparent",
+        "titleBarOverlay": {
+          "color": "rgba(30, 30, 30, 0.85)",
+          "symbolColor": "#ffffff"
+        },
         "resizable": true,
         "maximizable": true,
         "minimizable": true,

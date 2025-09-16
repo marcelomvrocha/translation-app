@@ -1,0 +1,241 @@
+/* Title Bar Overlay - Modern Stylish Design */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px; /* Standard macOS title bar height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  -webkit-app-region: drag; /* Allow window dragging */
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Variants */
+.light {
+  background: rgba(245, 245, 245, 0.9);
+  color: #1f2937;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  background: rgba(30, 30, 30, 0.85);
+  color: #f9fafb;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Layout */
+.leftSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0; /* Allow shrinking */
+}
+
+.centerSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0 20px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+}
+
+/* GAIA Branding */
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  -webkit-app-region: drag;
+}
+
+.appTitle {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.appTitle:hover {
+  transform: scale(1.02);
+}
+
+.projectIndicator {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  transition: opacity 0.2s ease;
+}
+
+.projectIndicator:hover {
+  opacity: 1;
+}
+
+/* Project Description */
+.projectDescription {
+  font-size: 11px;
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.projectDescription:hover {
+  opacity: 1;
+}
+
+/* Settings Button */
+.settingsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-app-region: no-drag; /* Prevent dragging on button */
+  color: inherit;
+}
+
+.settingsButton:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.settingsButton:active {
+  transform: scale(0.95);
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.settingsButton:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
+.settingsIcon {
+  width: 16px;
+  height: 16px;
+  transition: all 0.2s ease;
+}
+
+.settingsButton:hover .settingsIcon {
+  color: #3b82f6;
+  transform: rotate(15deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0 12px;
+  }
+  
+  .projectIndicator {
+    max-width: 120px;
+  }
+  
+  .projectDescription {
+    max-width: 150px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 0 8px;
+  }
+  
+  .projectIndicator {
+    display: none;
+  }
+  
+  .projectDescription {
+    display: none;
+  }
+  
+  .appTitle {
+    font-size: 13px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Focus States for Accessibility */
+.settingsButton:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .overlay {
+    border-bottom-width: 2px;
+  }
+  
+  .appTitle {
+    -webkit-text-fill-color: initial;
+    color: inherit;
+  }
+  
+  .settingsButton:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .appTitle,
+  .settingsButton,
+  .settingsIcon {
+    transition: none;
+  }
+  
+  .overlay {
+    animation: none;
+  }
+}
